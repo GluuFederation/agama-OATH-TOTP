@@ -8,7 +8,7 @@
 
 # Gluu Agama TOTP Project
 
-Welcome to the [https://github.com/kdhttps/agama-otp](https://github.com/kdhttps/agama-otp) project. This project is governed by Gluu and published under an Apache 2.0 license.
+Welcome to the [https://github.com/GluuFederation/agama-OATH-TOTP](https://github.com/GluuFederation/agama-OATH-TOTP) project. This project is governed by Gluu and published under an Apache 2.0 license.
 
 Use this project to add user authentication with OTOP(Time-based One-time Passwords) 2-factor authentication.
 
@@ -66,17 +66,17 @@ rp->>browser: Page is accessed
 
 # License
 
-This project is licensed under the [Apache 2.0](https://github.com/kdhttps/agama-otp/blob/main/LICENSE)
+This project is licensed under the [Apache 2.0](https://github.com/GluuFederation/agama-OATH-TOTP/blob/main/LICENSE)
 
 <!-- This are stats url reference for this repository -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/kdhttps/agama-otp.svg?style=for-the-badge
-[contributors-url]: https://github.com/kdhttps/agama-otp/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/kdhttps/agama-otp.svg?style=for-the-badge
-[forks-url]: https://github.com/kdhttps/agama-otp/network/members
-[stars-shield]: https://img.shields.io/github/stars/kdhttps/agama-otp?style=for-the-badge
-[stars-url]: https://github.com/kdhttps/agama-otp/stargazers
-[issues-shield]: https://img.shields.io/github/issues/kdhttps/agama-otp.svg?style=for-the-badge
-[issues-url]: https://github.com/kdhttps/agama-otp/issues
-[license-shield]: https://img.shields.io/github/license/kdhttps/agama-otp.svg?style=for-the-badge
-[license-url]: https://github.com/kdhttps/agama-otp/blob/main/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/GluuFederation/agama-OATH-TOTP.svg?style=for-the-badge
+[contributors-url]: https://github.com/GluuFederation/agama-OATH-TOTP/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/GluuFederation/agama-OATH-TOTP.svg?style=for-the-badge
+[forks-url]: https://github.com/GluuFederation/agama-OATH-TOTP/network/members
+[stars-shield]: https://img.shields.io/github/stars/GluuFederation/agama-OATH-TOTP?style=for-the-badge
+[stars-url]: https://github.com/GluuFederation/agama-OATH-TOTP/stargazers
+[issues-shield]: https://img.shields.io/github/issues/GluuFederation/agama-OATH-TOTP.svg?style=for-the-badge
+[issues-url]: https://github.com/GluuFederation/agama-OATH-TOTP/issues
+[license-shield]: https://img.shields.io/github/license/GluuFederation/agama-OATH-TOTP.svg?style=for-the-badge
+[license-url]: https://github.com/GluuFederation/agama-OATH-TOTP/blob/main/LICENSE
