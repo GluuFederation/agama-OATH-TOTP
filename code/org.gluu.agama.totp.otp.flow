@@ -1,0 +1,10 @@
+Flow org.gluu.agama.totp.otp
+     Basepath ""
+     Inputs userId secretKey qrCodeAlg
+// otp enrollment
+Log "@debug otp enrollment for user " userId secretKey
+scanCode = RRF "otplogin.ftlh" 
+Log "@debug scan code : " scanCode.code
+otpCheck | E = Call org.gluu.agama.totp.TOTPUtil#validateTOTP scanCode.code secretKey qrCodeAlg
+Log "@debug otp check result " otpCheck
+Finish otpCheck

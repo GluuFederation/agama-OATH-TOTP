@@ -1,0 +1,20 @@
+Flow org.gluu.agama.totp.enroll
+     Basepath ""
+     Inputs userId qrCodeAlg qrCodeKeyLength qrCodeLabel
+// otp enrollment
+Log "@debug otp enrollment for user " userId
+// Generate secret key 
+secretKey = Call org.gluu.agama.totp.TOTPUtil#generateSecretKey qrCodeKeyLength
+// secret code uri for QR Code
+secretKeyUri | E = Call org.gluu.agama.totp.TOTPUtil#generateTotpSecretKeyUri secretKey "gluu" userId
+Log "@debug secretKeyUri : " secretKeyUri  E
+obj = { secretKeyUri : secretKeyUri, qrCodeLabel: qrCodeLabel }
+scanCode = RRF "enroll.ftlh" obj
+Log "@debug scan code : " scanCode.code
+otpCheck | E = Call org.gluu.agama.totp.TOTPUtil#validateTOTP scanCode.code secretKey qrCodeAlg
+Log "@debug otp check result " otpCheck E
+// check otp enrollment is valid?
+When otpCheck is true
+     userSavedData | E = Call org.gluu.agama.totp.IdentityProcessor#link userId secretKey
+     Log "@debug user saved data " userSavedData E
+Finish otpCheck

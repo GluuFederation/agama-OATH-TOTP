@@ -1,0 +1,30 @@
+// Main flow to handle all sub flows
+Flow org.gluu.agama.totp.main
+     Basepath ""
+     Configs conf
+// Log Proceeding for user authn
+Log "@debug proceeding for user authn"
+// Username password login
+user | E = Trigger org.gluu.agama.totp.pw 
+// log authenticated user
+Log "@debug Authn user details " user
+userId = user.data.userId
+userTOTPSecretKey | E = Call org.gluu.agama.totp.IdentityProcessor#getUserTOTPSecretKey userId
+Log "@debug user TOTP secret key from flow " userTOTPSecretKey
+checkOTPValid = null
+qrCodeAlg = conf.qrCodeAlg
+qrCodeLabel = conf.qrCodeLabel
+qrCodeKeyLength = conf.qrCodeKeyLength
+// if no enrollment exist
+When userTOTPSecretKey is null
+     checkOTPValid | E = Trigger org.gluu.agama.totp.enroll userId qrCodeAlg qrCodeKeyLength qrCodeLabel
+     Log "@debug checkOTPValid enroll " checkOTPValid E
+// if user is already enrolled
+When userTOTPSecretKey is not null
+     checkOTPValid | E = Trigger org.gluu.agama.totp.otp userId userTOTPSecretKey qrCodeAlg
+     Log "@debug checkOTPValid check otp " checkOTPValid E
+When checkOTPValid.success is true
+     it_iwiih = {success:true, data: { userId: userId }}
+     Finish it_iwiih
+it_ykpct = {success:false, error: "login failed"}
+Finish it_ykpct
