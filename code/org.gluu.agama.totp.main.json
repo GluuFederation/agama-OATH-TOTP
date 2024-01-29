@@ -3,6 +3,106 @@
 		{
 			"width": 270,
 			"height": 55,
+			"id": "Agama-note-68b5f719-b714-4342-902a-e09f221a6590",
+			"position": {
+				"x": 2516,
+				"y": 94
+			},
+			"type": "notes",
+			"data": {
+				"id": "Agama-note-68b5f719-b714-4342-902a-e09f221a6590",
+				"type": "Agama-note",
+				"notes": "Check if user is already enrolled for TOTP then ask only to enter OTP",
+				"position": {
+					"x": 2516,
+					"y": 94
+				}
+			},
+			"selected": false,
+			"positionAbsolute": {
+				"x": 2516,
+				"y": 94
+			},
+			"dragging": false
+		},
+		{
+			"width": 270,
+			"height": 42,
+			"id": "Agama-note-241ef01d-e6f3-433d-9c81-f8d3b9986df1",
+			"position": {
+				"x": 1845.9999999999998,
+				"y": 412
+			},
+			"type": "notes",
+			"data": {
+				"id": "Agama-note-241ef01d-e6f3-433d-9c81-f8d3b9986df1",
+				"type": "Agama-note",
+				"notes": "Proceed for user TOTP enrolment flow process",
+				"position": {
+					"x": 1845.9999999999998,
+					"y": 412
+				}
+			},
+			"selected": false,
+			"positionAbsolute": {
+				"x": 1845.9999999999998,
+				"y": 412
+			},
+			"dragging": false
+		},
+		{
+			"width": 270,
+			"height": 42,
+			"id": "Agama-note-ec547944-50ce-47ae-ade7-c7cbea4af388",
+			"position": {
+				"x": 1896,
+				"y": 116
+			},
+			"type": "notes",
+			"data": {
+				"id": "Agama-note-ec547944-50ce-47ae-ade7-c7cbea4af388",
+				"type": "Agama-note",
+				"notes": "Check if user is not enrolled for TOTP 2FA ",
+				"position": {
+					"x": 1896,
+					"y": 116
+				}
+			},
+			"selected": false,
+			"positionAbsolute": {
+				"x": 1896,
+				"y": 116
+			},
+			"dragging": false
+		},
+		{
+			"width": 270,
+			"height": 55,
+			"id": "Agama-note-6375b56f-4095-439a-bba7-e717dbb4f554",
+			"position": {
+				"x": 1081,
+				"y": 30
+			},
+			"type": "notes",
+			"data": {
+				"id": "Agama-note-6375b56f-4095-439a-bba7-e717dbb4f554",
+				"type": "Agama-note",
+				"notes": "Fetching User's secretKey to check user is already enrolled or not",
+				"position": {
+					"x": 1081,
+					"y": 30
+				}
+			},
+			"selected": false,
+			"positionAbsolute": {
+				"x": 1081,
+				"y": 30
+			},
+			"dragging": false
+		},
+		{
+			"width": 270,
+			"height": 55,
 			"id": "Agama-note-997449a3-70bf-4ea2-8831-421068e07b27",
 			"position": {
 				"x": 33.33150978085155,
@@ -148,7 +248,15 @@
 					"hasComment": true,
 					"inRepeatBlock": "",
 					"hasSuccess": true,
-					"hasFailure": true
+					"hasFailure": true,
+					"conditions": [
+						{
+							"variable": "checkOTPValid.success",
+							"operator": "is",
+							"dataValue": "true",
+							"combinator": "none"
+						}
+					]
 				},
 				"handles": [
 					"Agama-when-Node-c30bebbf-7ce3-4fa3-9743-cf10643dd99c.FAILURE",
@@ -227,9 +335,9 @@
 					"id": "Agama-trigger-Node-030c7c0d-f0cc-44f3-ba67-ca99c7a01793",
 					"parentId": "Agama-when-Node-1f6a89df-661b-4baa-9419-78e755ba4b12",
 					"type": "Agama-trigger-Node",
-					"displayName": "load otp page and check",
+					"displayName": "",
 					"hasComment": true,
-					"comment": "",
+					"comment": "Debug Log: Load OTP page and check OTP",
 					"whenCondition": "WhenTrue",
 					"inRepeatBlock": "",
 					"nodeIcon": "fluent-mdl2:trigger-approval",
@@ -274,9 +382,9 @@
 					"id": "Agama-log-Node-16203684-77dd-42fe-9f40-783cb4047118",
 					"parentId": "Agama-trigger-Node-8c3bb0a9-9b1f-4b34-9039-dd6e3463545d",
 					"type": "Agama-log-Node",
-					"displayName": "log checkOTPValid",
+					"displayName": "",
 					"hasComment": true,
-					"comment": "",
+					"comment": "Debug Log result fo OTP Check",
 					"whenCondition": "",
 					"inRepeatBlock": false,
 					"logMessage": "\"checkOTPValid enroll \" checkOTPValid E",
@@ -315,9 +423,9 @@
 					"id": "Agama-trigger-Node-8c3bb0a9-9b1f-4b34-9039-dd6e3463545d",
 					"parentId": "Agama-when-Node-4fa47f26-e1e3-4d4f-b40d-31de2ff74da4",
 					"type": "Agama-trigger-Node",
-					"displayName": "enroll user",
+					"displayName": "",
 					"hasComment": true,
-					"comment": "",
+					"comment": "Trigger enrollment flow, Load enroll.ftlh page, ask to scan code, enter code and check OTP is valid or not",
 					"whenCondition": "WhenTrue",
 					"inRepeatBlock": false,
 					"nodeIcon": "fluent-mdl2:trigger-approval",
@@ -333,7 +441,7 @@
 				},
 				"skake": false
 			},
-			"selected": false,
+			"selected": true,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 2146,
@@ -345,8 +453,8 @@
 			"height": 124,
 			"id": "Agama-assignment-Node-991ae6f6-437f-45ef-927e-51659e977511",
 			"position": {
-				"x": 898.1141316191488,
-				"y": 117.47282597234039
+				"x": 899.1141316191488,
+				"y": 122.47282597234039
 			},
 			"type": "assignment",
 			"data": {
@@ -356,16 +464,16 @@
 				"whenCondition": "",
 				"inRepeatBlock": false,
 				"position": {
-					"x": 898.1141316191488,
-					"y": 117.47282597234039
+					"x": 899.1141316191488,
+					"y": 122.47282597234039
 				},
 				"agamaData": {
 					"id": "Agama-assignment-Node-991ae6f6-437f-45ef-927e-51659e977511",
 					"parentId": "Agama-log-Node-9d24eef3-4e4c-4647-a215-407f7fb0b575",
 					"type": "Agama-assignment-Node",
-					"displayName": "userId",
+					"displayName": "",
 					"hasComment": true,
-					"comment": "",
+					"comment": "Init userId with user.data.userid",
 					"whenCondition": "",
 					"inRepeatBlock": false,
 					"assignments": [
@@ -386,8 +494,8 @@
 			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
-				"x": 898.1141316191488,
-				"y": 117.47282597234039
+				"x": 899.1141316191488,
+				"y": 122.47282597234039
 			}
 		},
 		{
@@ -550,7 +658,7 @@
 				"x": 72,
 				"y": 120
 			},
-			"selected": true,
+			"selected": false,
 			"positionAbsolute": {
 				"x": 72,
 				"y": 120
@@ -562,7 +670,7 @@
 			"height": 124,
 			"id": "Agama-call-Node-c9f0bffa-db46-4080-8661-c51de76a3ef5",
 			"position": {
-				"x": 1148,
+				"x": 1131,
 				"y": 120
 			},
 			"type": "call",
@@ -573,16 +681,16 @@
 				"whenCondition": "",
 				"inRepeatBlock": false,
 				"position": {
-					"x": 1148,
+					"x": 1131,
 					"y": 120
 				},
 				"agamaData": {
 					"id": "Agama-call-Node-c9f0bffa-db46-4080-8661-c51de76a3ef5",
 					"parentId": "Agama-assignment-Node-991ae6f6-437f-45ef-927e-51659e977511",
 					"type": "Agama-call-Node",
-					"displayName": "Get User TOTP Secret key",
+					"displayName": "",
 					"hasComment": true,
-					"comment": "",
+					"comment": "Get User's TOTP Secret key",
 					"javaClassName": "org.gluu.agama.totp.IdentityProcessor",
 					"javaMethodName": "getUserTOTPSecretKey",
 					"javaVariableName": "",
@@ -600,7 +708,7 @@
 			},
 			"selected": false,
 			"positionAbsolute": {
-				"x": 1148,
+				"x": 1131,
 				"y": 120
 			},
 			"dragging": false
@@ -610,8 +718,8 @@
 			"height": 124,
 			"id": "Agama-log-Node-9e877173-94de-48c1-a807-cde1025de181",
 			"position": {
-				"x": 1372,
-				"y": 187
+				"x": 1382,
+				"y": 124
 			},
 			"type": "log",
 			"data": {
@@ -621,16 +729,16 @@
 				"whenCondition": "",
 				"inRepeatBlock": false,
 				"position": {
-					"x": 1372,
-					"y": 187
+					"x": 1382,
+					"y": 124
 				},
 				"agamaData": {
 					"id": "Agama-log-Node-9e877173-94de-48c1-a807-cde1025de181",
 					"parentId": "Agama-call-Node-c9f0bffa-db46-4080-8661-c51de76a3ef5",
 					"type": "Agama-log-Node",
-					"displayName": "log user TOTP secret key",
+					"displayName": "",
 					"hasComment": true,
-					"comment": "",
+					"comment": "Debug Log User TOTP secret key ",
 					"whenCondition": "",
 					"inRepeatBlock": false,
 					"logMessage": "\"user TOTP secret key from flow \" userTOTPSecretKey",
@@ -645,8 +753,8 @@
 			},
 			"selected": false,
 			"positionAbsolute": {
-				"x": 1372,
-				"y": 187
+				"x": 1382,
+				"y": 124
 			},
 			"dragging": false
 		},
@@ -655,8 +763,8 @@
 			"height": 124,
 			"id": "Agama-assignment-Node-8fd47c3f-713f-44bd-a54e-23a8c291d312",
 			"position": {
-				"x": 1605,
-				"y": 168
+				"x": 1610,
+				"y": 131
 			},
 			"type": "assignment",
 			"data": {
@@ -666,16 +774,16 @@
 				"whenCondition": "",
 				"inRepeatBlock": false,
 				"position": {
-					"x": 1605,
-					"y": 168
+					"x": 1610,
+					"y": 131
 				},
 				"agamaData": {
 					"id": "Agama-assignment-Node-8fd47c3f-713f-44bd-a54e-23a8c291d312",
 					"parentId": "Agama-log-Node-9e877173-94de-48c1-a807-cde1025de181",
 					"type": "Agama-assignment-Node",
-					"displayName": "declare enrollData",
+					"displayName": "",
 					"hasComment": true,
-					"comment": "",
+					"comment": "Declare and map enrollData to easy usage",
 					"whenCondition": "",
 					"inRepeatBlock": false,
 					"assignments": [
@@ -706,8 +814,8 @@
 			},
 			"selected": false,
 			"positionAbsolute": {
-				"x": 1605,
-				"y": 168
+				"x": 1610,
+				"y": 131
 			},
 			"dragging": false
 		},
@@ -716,7 +824,7 @@
 			"height": 140,
 			"id": "Agama-when-Node-4fa47f26-e1e3-4d4f-b40d-31de2ff74da4",
 			"position": {
-				"x": 1843,
+				"x": 1908,
 				"y": 185
 			},
 			"parentId": "Agama-assignment-Node-8fd47c3f-713f-44bd-a54e-23a8c291d312",
@@ -728,7 +836,7 @@
 				"whenCondition": "",
 				"inRepeatBlock": "",
 				"position": {
-					"x": 1843,
+					"x": 1908,
 					"y": 185
 				},
 				"agamaData": {
@@ -744,7 +852,15 @@
 					"position": {
 						"x": 1960
 					},
-					"hasFailure": true
+					"hasFailure": true,
+					"conditions": [
+						{
+							"variable": "userTOTPSecretKey",
+							"operator": "is",
+							"dataValue": "null",
+							"combinator": "none"
+						}
+					]
 				},
 				"handles": [
 					"Agama-when-Node-4fa47f26-e1e3-4d4f-b40d-31de2ff74da4.FAILURE",
@@ -755,7 +871,7 @@
 			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
-				"x": 1843,
+				"x": 1908,
 				"y": 185
 			},
 			"whenCondition": "",
@@ -794,7 +910,15 @@
 					"inRepeatBlock": "",
 					"hasSuccess": "",
 					"hasNoRepeat": false,
-					"hasRepeat": false
+					"hasRepeat": false,
+					"conditions": [
+						{
+							"variable": "userTOTPSecretKey",
+							"operator": "is not",
+							"dataValue": "null",
+							"combinator": "none"
+						}
+					]
 				},
 				"handles": [
 					"Agama-when-Node-1f6a89df-661b-4baa-9419-78e755ba4b12.FAILURE",
@@ -1114,8 +1238,8 @@
 		}
 	],
 	"viewport": {
-		"x": 18,
-		"y": 110,
-		"zoom": 1
+		"x": -1617.5616843675598,
+		"y": -4.701211777191929,
+		"zoom": 0.8629214062794984
 	}
 }
