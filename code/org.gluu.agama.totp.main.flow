@@ -4,7 +4,7 @@ Flow org.gluu.agama.totp.main
      Configs conf
 // Log Proceeding for user authn
 Log "@debug proceeding for user authn"
-// Username password login
+// Trigger User Authn PW ask Username password login
 user | E = Trigger org.gluu.agama.totp.pw 
 // log authenticated user
 Log "@debug Authn user details " user
@@ -23,15 +23,18 @@ qrCodeKeyLength = conf.qrCodeKeyLength
 When userTOTPSecretKey is null
      // Trigger enrollment flow, Load enroll.ftlh page, ask to scan code, enter code and check OTP is valid or not
      checkOTPValid | E = Trigger org.gluu.agama.totp.enroll userId qrCodeAlg qrCodeKeyLength qrCodeLabel
-     // Debug Log result fo OTP Check
+     // Debug Log result of OTP Check valid or not
      Log "@debug checkOTPValid enroll " checkOTPValid E
 // if user is already enrolled
 When userTOTPSecretKey is not null
-     // Debug Log: Load OTP page and check OTP
+     // Trigger otp flow
      checkOTPValid | E = Trigger org.gluu.agama.totp.otp userId userTOTPSecretKey qrCodeAlg
+     // Debug Log: result of OTP Check valid or not
      Log "@debug checkOTPValid check otp " checkOTPValid E
 When checkOTPValid.success is true
-     it_lzwda = {success:true, data: { userId: userId }}
-     Finish it_lzwda
-it_agisi = {success:false, error: "login failed"}
-Finish it_agisi
+     // finish with success userId
+     it_poppo = {success:true, data: { userId: userId }}
+     Finish it_poppo
+// Login Failed
+it_jgclk = {success:false, error: "login failed"}
+Finish it_jgclk
