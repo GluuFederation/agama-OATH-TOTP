@@ -2,7 +2,7 @@
     "projectName": "agama-otp",
     "description": "Agama OAuth TOPT based enroll and authn with Jans Server",
     "type": "community",
-    "author": "kdhttps",
+    "author": "GluuFederation",
     "version": "0.0.1",
     "authorWebsite": "https://github.com/GluuFederation/agama-OATH-TOTP",
     "githubUri": "https://github.com/GluuFederation/agama-OATH-TOTP",

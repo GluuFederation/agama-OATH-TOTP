@@ -17,7 +17,7 @@
 	  <div class="md:border md:border-gray-300 bg-white md:shadow-lg shadow-none rounded p-10">
 		<div class="flex flex-col items-center space-y-3">
 		  <div class="flex">
-			<img src="https://gluu.org/wp-content/uploads/2020/12/logo.png">
+			<img src="gluulogo.png">
 		  </div>
 		  <p class="leading-normal">1. Scan code
 		  </p>
