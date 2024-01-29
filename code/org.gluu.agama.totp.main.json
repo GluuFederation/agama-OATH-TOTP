@@ -3,6 +3,81 @@
 		{
 			"width": 270,
 			"height": 55,
+			"id": "Agama-note-163dea35-0e83-41a5-aea0-d5b2233a4f7b",
+			"position": {
+				"x": 463.4799537674786,
+				"y": -10.802671507960781
+			},
+			"type": "notes",
+			"data": {
+				"id": "Agama-note-163dea35-0e83-41a5-aea0-d5b2233a4f7b",
+				"type": "Agama-note",
+				"notes": "Trigger user authn flow, load login.ftlh page, ask to enter username and password",
+				"position": {
+					"x": 463.4799537674786,
+					"y": -10.802671507960781
+				}
+			},
+			"selected": false,
+			"positionAbsolute": {
+				"x": 463.4799537674786,
+				"y": -10.802671507960781
+			},
+			"dragging": false
+		},
+		{
+			"width": 270,
+			"height": 55,
+			"id": "Agama-note-39660c51-0d9b-435e-8f3b-f9437cfb0ea9",
+			"position": {
+				"x": 2718,
+				"y": 316
+			},
+			"type": "notes",
+			"data": {
+				"id": "Agama-note-39660c51-0d9b-435e-8f3b-f9437cfb0ea9",
+				"type": "Agama-note",
+				"notes": "Proceed for OTP check, Load otplogin.ftlh page, ask to enter OTP and check valid OTP",
+				"position": {
+					"x": 2718,
+					"y": 316
+				}
+			},
+			"selected": false,
+			"positionAbsolute": {
+				"x": 2718,
+				"y": 316
+			},
+			"dragging": false
+		},
+		{
+			"width": 211,
+			"height": 30,
+			"id": "Agama-note-b65aa186-4826-45b6-8189-30bc5388116b",
+			"position": {
+				"x": 3103.496810563672,
+				"y": 118.40080775743363
+			},
+			"type": "notes",
+			"data": {
+				"id": "Agama-note-b65aa186-4826-45b6-8189-30bc5388116b",
+				"type": "Agama-note",
+				"notes": "Check OTP is valid or not",
+				"position": {
+					"x": 3103.496810563672,
+					"y": 118.40080775743363
+				}
+			},
+			"selected": false,
+			"positionAbsolute": {
+				"x": 3103.496810563672,
+				"y": 118.40080775743363
+			},
+			"dragging": false
+		},
+		{
+			"width": 270,
+			"height": 55,
 			"id": "Agama-note-68b5f719-b714-4342-902a-e09f221a6590",
 			"position": {
 				"x": 2516,
@@ -16,7 +91,8 @@
 				"position": {
 					"x": 2516,
 					"y": 94
-				}
+				},
+				"skake": false
 			},
 			"selected": false,
 			"positionAbsolute": {
@@ -30,8 +106,8 @@
 			"height": 42,
 			"id": "Agama-note-241ef01d-e6f3-433d-9c81-f8d3b9986df1",
 			"position": {
-				"x": 1845.9999999999998,
-				"y": 412
+				"x": 2086,
+				"y": 316
 			},
 			"type": "notes",
 			"data": {
@@ -39,14 +115,15 @@
 				"type": "Agama-note",
 				"notes": "Proceed for user TOTP enrolment flow process",
 				"position": {
-					"x": 1845.9999999999998,
-					"y": 412
-				}
+					"x": 2086,
+					"y": 316
+				},
+				"skake": false
 			},
 			"selected": false,
 			"positionAbsolute": {
-				"x": 1845.9999999999998,
-				"y": 412
+				"x": 2086,
+				"y": 316
 			},
 			"dragging": false
 		},
@@ -55,8 +132,8 @@
 			"height": 42,
 			"id": "Agama-note-ec547944-50ce-47ae-ade7-c7cbea4af388",
 			"position": {
-				"x": 1896,
-				"y": 116
+				"x": 1899.4493009032726,
+				"y": 88.40559277382073
 			},
 			"type": "notes",
 			"data": {
@@ -64,14 +141,15 @@
 				"type": "Agama-note",
 				"notes": "Check if user is not enrolled for TOTP 2FA ",
 				"position": {
-					"x": 1896,
-					"y": 116
-				}
+					"x": 1899.4493009032726,
+					"y": 88.40559277382073
+				},
+				"skake": false
 			},
 			"selected": false,
 			"positionAbsolute": {
-				"x": 1896,
-				"y": 116
+				"x": 1899.4493009032726,
+				"y": 88.40559277382073
 			},
 			"dragging": false
 		},
@@ -81,7 +159,7 @@
 			"id": "Agama-note-6375b56f-4095-439a-bba7-e717dbb4f554",
 			"position": {
 				"x": 1081,
-				"y": 30
+				"y": 17.52061421622301
 			},
 			"type": "notes",
 			"data": {
@@ -90,13 +168,14 @@
 				"notes": "Fetching User's secretKey to check user is already enrolled or not",
 				"position": {
 					"x": 1081,
-					"y": 30
-				}
+					"y": 17.52061421622301
+				},
+				"skake": false
 			},
 			"selected": false,
 			"positionAbsolute": {
 				"x": 1081,
-				"y": 30
+				"y": 17.52061421622301
 			},
 			"dragging": false
 		},
@@ -156,12 +235,13 @@
 					"hasSuccess": false,
 					"hasFailure": false,
 					"hasComment": true,
-					"comment": "",
+					"comment": "Login Failed",
 					"flowfilename": "",
 					"returnVariable": "login failed",
 					"finishMode": "withFailure",
 					"nodeIcon": "material-symbols:line-end-square-rounded",
-					"displayName": "failed"
+					"displayName": "",
+					"nodeColor": "#e3a5a5"
 				},
 				"skake": false
 			},
@@ -202,12 +282,12 @@
 					"hasSuccess": false,
 					"hasFailure": false,
 					"hasComment": true,
-					"comment": "",
+					"comment": "finish with success userId",
 					"flowfilename": "",
 					"returnVariable": "{ userId: userId }",
 					"finishMode": "withSuccess",
 					"nodeIcon": "material-symbols:line-end-square-rounded",
-					"displayName": "finish success"
+					"displayName": ""
 				},
 				"skake": false
 			},
@@ -223,8 +303,8 @@
 			"height": 140,
 			"id": "Agama-when-Node-c30bebbf-7ce3-4fa3-9743-cf10643dd99c",
 			"position": {
-				"x": 3111,
-				"y": 197
+				"x": 3104.9147594545157,
+				"y": 162.0318866153716
 			},
 			"parentId": "Agama-when-Node-1f6a89df-661b-4baa-9419-78e755ba4b12",
 			"type": "when",
@@ -235,8 +315,8 @@
 				"whenCondition": "WhenFalse",
 				"inRepeatBlock": "",
 				"position": {
-					"x": 3111,
-					"y": 197
+					"x": 3104.9147594545157,
+					"y": 162.0318866153716
 				},
 				"agamaData": {
 					"id": "Agama-when-Node-c30bebbf-7ce3-4fa3-9743-cf10643dd99c",
@@ -266,8 +346,8 @@
 			},
 			"selected": false,
 			"positionAbsolute": {
-				"x": 3111,
-				"y": 197
+				"x": 3104.9147594545157,
+				"y": 162.0318866153716
 			},
 			"dragging": false
 		},
@@ -294,9 +374,9 @@
 					"id": "Agama-log-Node-a2d8e474-a1c6-4bbd-8ff7-0132e5a500f4",
 					"parentId": "Agama-trigger-Node-030c7c0d-f0cc-44f3-ba67-ca99c7a01793",
 					"type": "Agama-log-Node",
-					"displayName": "log otp check",
+					"displayName": "",
 					"hasComment": true,
-					"comment": "",
+					"comment": "Debug Log: result of OTP Check valid or not",
 					"whenCondition": "",
 					"inRepeatBlock": "",
 					"logMessage": "\"checkOTPValid check otp \" checkOTPValid E",
@@ -337,7 +417,7 @@
 					"type": "Agama-trigger-Node",
 					"displayName": "",
 					"hasComment": true,
-					"comment": "Debug Log: Load OTP page and check OTP",
+					"comment": "Trigger otp flow",
 					"whenCondition": "WhenTrue",
 					"inRepeatBlock": "",
 					"nodeIcon": "fluent-mdl2:trigger-approval",
@@ -348,7 +428,8 @@
 						"qrCodeAlg"
 					],
 					"asssignedVariableName": "checkOTPValid",
-					"exceptionVariableField": "E"
+					"exceptionVariableField": "E",
+					"nodeColor": "#82dcdc"
 				},
 				"skake": false
 			},
@@ -384,7 +465,7 @@
 					"type": "Agama-log-Node",
 					"displayName": "",
 					"hasComment": true,
-					"comment": "Debug Log result fo OTP Check",
+					"comment": "Debug Log result of OTP Check valid or not",
 					"whenCondition": "",
 					"inRepeatBlock": false,
 					"logMessage": "\"checkOTPValid enroll \" checkOTPValid E",
@@ -437,11 +518,12 @@
 						"qrCodeLabel"
 					],
 					"asssignedVariableName": "checkOTPValid",
-					"exceptionVariableField": "E"
+					"exceptionVariableField": "E",
+					"nodeColor": "#82dcdc"
 				},
 				"skake": false
 			},
-			"selected": true,
+			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 2146,
@@ -562,16 +644,17 @@
 					"id": "Agama-trigger-Node-e55136b1-e061-4ca6-9a25-05afeb5e2d8b",
 					"parentId": "Agama-log-Node-cb7fc7cb-a84c-4c28-aea3-e9d7bbf1683a",
 					"type": "Agama-trigger-Node",
-					"displayName": "Trigger User Authn PW",
+					"displayName": "",
 					"hasComment": true,
-					"comment": "Username password login",
+					"comment": "Trigger User Authn PW ask Username password login",
 					"whenCondition": "",
 					"inRepeatBlock": false,
 					"nodeIcon": "fluent-mdl2:trigger-approval",
 					"flowFileName": "org.gluu.agama.totp.pw",
 					"arguments": [],
 					"asssignedVariableName": "user",
-					"exceptionVariableField": "E"
+					"exceptionVariableField": "E",
+					"nodeColor": "#82dcdc"
 				},
 				"skake": false
 			},
@@ -824,8 +907,8 @@
 			"height": 140,
 			"id": "Agama-when-Node-4fa47f26-e1e3-4d4f-b40d-31de2ff74da4",
 			"position": {
-				"x": 1908,
-				"y": 185
+				"x": 1937.3190576778156,
+				"y": 174.65209729018272
 			},
 			"parentId": "Agama-assignment-Node-8fd47c3f-713f-44bd-a54e-23a8c291d312",
 			"type": "when",
@@ -836,8 +919,8 @@
 				"whenCondition": "",
 				"inRepeatBlock": "",
 				"position": {
-					"x": 1908,
-					"y": 185
+					"x": 1937.3190576778156,
+					"y": 174.65209729018272
 				},
 				"agamaData": {
 					"id": "Agama-when-Node-4fa47f26-e1e3-4d4f-b40d-31de2ff74da4",
@@ -871,8 +954,8 @@
 			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
-				"x": 1908,
-				"y": 185
+				"x": 1937.3190576778156,
+				"y": 174.65209729018272
 			},
 			"whenCondition": "",
 			"inRepeatBlock": ""
@@ -883,7 +966,7 @@
 			"id": "Agama-when-Node-1f6a89df-661b-4baa-9419-78e755ba4b12",
 			"position": {
 				"x": 2566,
-				"y": 193
+				"y": 163.6809423221846
 			},
 			"parentId": "Agama-when-Node-4fa47f26-e1e3-4d4f-b40d-31de2ff74da4",
 			"type": "when",
@@ -895,7 +978,7 @@
 				"inRepeatBlock": "",
 				"position": {
 					"x": 2566,
-					"y": 183
+					"y": 163.6809423221846
 				},
 				"agamaData": {
 					"id": "Agama-when-Node-1f6a89df-661b-4baa-9419-78e755ba4b12",
@@ -929,7 +1012,7 @@
 			"selected": false,
 			"positionAbsolute": {
 				"x": 2566,
-				"y": 193
+				"y": 163.6809423221846
 			},
 			"dragging": false
 		}
@@ -1238,8 +1321,8 @@
 		}
 	],
 	"viewport": {
-		"x": -1617.5616843675598,
-		"y": -4.701211777191929,
-		"zoom": 0.8629214062794984
+		"x": -1154.6631709469677,
+		"y": 163.07060275507655,
+		"zoom": 0.7264153145286234
 	}
 }
