@@ -1,6 +1,31 @@
 {
 	"nodes": [
 		{
+			"width": 270,
+			"height": 68,
+			"id": "Agama-note-28f805fe-8d5a-4bdc-b040-b5adf9c704a9",
+			"position": {
+				"x": 4,
+				"y": -24
+			},
+			"type": "notes",
+			"data": {
+				"id": "Agama-note-28f805fe-8d5a-4bdc-b040-b5adf9c704a9",
+				"type": "Agama-note",
+				"notes": "Simple flow for user authn. Load login page , ask user to enter username password, and validate credentials ",
+				"position": {
+					"x": 4,
+					"y": -24
+				}
+			},
+			"selected": false,
+			"positionAbsolute": {
+				"x": 4,
+				"y": -24
+			},
+			"dragging": false
+		},
+		{
 			"width": 170,
 			"height": 124,
 			"id": "finish-4dae67b1-1c40-4881-9df0-0abe9a652103",
@@ -197,7 +222,15 @@
 					"conditionInputField": "is",
 					"valueField": "true",
 					"comment": "authResult.success is true",
-					"hasComment": true
+					"hasComment": true,
+					"conditions": [
+						{
+							"variable": "authResult.success",
+							"operator": "is",
+							"dataValue": "true",
+							"combinator": "none"
+						}
+					]
 				},
 				"handles": [
 					"Agama-when-Node-9cb26c5d-64d4-4f9e-b60f-846c01663919.FAILURE",
@@ -883,7 +916,7 @@
 				"x": 34,
 				"y": 82
 			},
-			"selected": true,
+			"selected": false,
 			"positionAbsolute": {
 				"x": 34,
 				"y": 82
@@ -1084,8 +1117,8 @@
 		}
 	],
 	"viewport": {
-		"x": 10,
-		"y": 15,
+		"x": 84,
+		"y": 107,
 		"zoom": 1
 	}
 }
