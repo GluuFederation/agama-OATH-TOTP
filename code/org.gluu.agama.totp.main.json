@@ -31,8 +31,8 @@
 			"height": 55,
 			"id": "Agama-note-39660c51-0d9b-435e-8f3b-f9437cfb0ea9",
 			"position": {
-				"x": 2718,
-				"y": 316
+				"x": 2843,
+				"y": 307
 			},
 			"type": "notes",
 			"data": {
@@ -40,15 +40,15 @@
 				"type": "Agama-note",
 				"notes": "Proceed for OTP check, Load otplogin.ftlh page, ask to enter OTP and check valid OTP",
 				"position": {
-					"x": 2718,
-					"y": 316
+					"x": 2843,
+					"y": 307
 				},
 				"skake": false
 			},
 			"selected": false,
 			"positionAbsolute": {
-				"x": 2718,
-				"y": 316
+				"x": 2843,
+				"y": 307
 			},
 			"dragging": false
 		},
@@ -57,7 +57,7 @@
 			"height": 30,
 			"id": "Agama-note-b65aa186-4826-45b6-8189-30bc5388116b",
 			"position": {
-				"x": 3103.496810563672,
+				"x": 3245.496810563672,
 				"y": 118.40080775743363
 			},
 			"type": "notes",
@@ -66,14 +66,14 @@
 				"type": "Agama-note",
 				"notes": "Check OTP is valid or not",
 				"position": {
-					"x": 3103.496810563672,
+					"x": 3245.496810563672,
 					"y": 118.40080775743363
 				},
 				"skake": false
 			},
-			"selected": false,
+			"selected": true,
 			"positionAbsolute": {
-				"x": 3103.496810563672,
+				"x": 3245.496810563672,
 				"y": 118.40080775743363
 			},
 			"dragging": false
@@ -83,8 +83,8 @@
 			"height": 55,
 			"id": "Agama-note-68b5f719-b714-4342-902a-e09f221a6590",
 			"position": {
-				"x": 2516,
-				"y": 94
+				"x": 2638,
+				"y": 77
 			},
 			"type": "notes",
 			"data": {
@@ -92,15 +92,15 @@
 				"type": "Agama-note",
 				"notes": "Check if user is already enrolled for TOTP then ask only to enter OTP",
 				"position": {
-					"x": 2516,
-					"y": 94
+					"x": 2638,
+					"y": 77
 				},
 				"skake": false
 			},
 			"selected": false,
 			"positionAbsolute": {
-				"x": 2516,
-				"y": 94
+				"x": 2638,
+				"y": 77
 			},
 			"dragging": false
 		},
@@ -109,8 +109,8 @@
 			"height": 42,
 			"id": "Agama-note-241ef01d-e6f3-433d-9c81-f8d3b9986df1",
 			"position": {
-				"x": 2086,
-				"y": 316
+				"x": 2228,
+				"y": 317
 			},
 			"type": "notes",
 			"data": {
@@ -118,15 +118,15 @@
 				"type": "Agama-note",
 				"notes": "Proceed for user TOTP enrolment flow process",
 				"position": {
-					"x": 2086,
-					"y": 316
+					"x": 2228,
+					"y": 317
 				},
 				"skake": false
 			},
 			"selected": false,
 			"positionAbsolute": {
-				"x": 2086,
-				"y": 316
+				"x": 2228,
+				"y": 317
 			},
 			"dragging": false
 		},
@@ -135,8 +135,8 @@
 			"height": 42,
 			"id": "Agama-note-ec547944-50ce-47ae-ade7-c7cbea4af388",
 			"position": {
-				"x": 1899.4493009032726,
-				"y": 88.40559277382073
+				"x": 2042.4493009032726,
+				"y": 92.40559277382073
 			},
 			"type": "notes",
 			"data": {
@@ -144,15 +144,15 @@
 				"type": "Agama-note",
 				"notes": "Check if user is not enrolled for TOTP 2FA ",
 				"position": {
-					"x": 1899.4493009032726,
-					"y": 88.40559277382073
+					"x": 2042.4493009032726,
+					"y": 92.40559277382073
 				},
 				"skake": false
 			},
 			"selected": false,
 			"positionAbsolute": {
-				"x": 1899.4493009032726,
-				"y": 88.40559277382073
+				"x": 2042.4493009032726,
+				"y": 92.40559277382073
 			},
 			"dragging": false
 		},
@@ -976,8 +976,8 @@
 			"height": 124,
 			"id": "Agama-call-Node-33690a15-4f77-4bb6-b3d3-6331b80904db",
 			"position": {
-				"x": 1159.1141316191488,
-				"y": 128.4728259723404
+				"x": 1143.1141316191488,
+				"y": 123.47282597234039
 			},
 			"type": "call",
 			"data": {
@@ -987,8 +987,8 @@
 				"whenCondition": "",
 				"inRepeatBlock": false,
 				"position": {
-					"x": 1159.1141316191488,
-					"y": 128.4728259723404
+					"x": 1143.1141316191488,
+					"y": 123.47282597234039
 				},
 				"agamaData": {
 					"id": "Agama-call-Node-33690a15-4f77-4bb6-b3d3-6331b80904db",
@@ -1007,12 +1007,13 @@
 					"arguments": [],
 					"nodeIcon": "material-symbols:code",
 					"asssignedVariableName": "OTPServiceObj"
-				}
+				},
+				"skake": false
 			},
-			"selected": true,
+			"selected": false,
 			"positionAbsolute": {
-				"x": 1159.1141316191488,
-				"y": 128.4728259723404
+				"x": 1143.1141316191488,
+				"y": 123.47282597234039
 			},
 			"dragging": false
 		},
@@ -1383,8 +1384,8 @@
 		}
 	],
 	"viewport": {
-		"x": -530,
-		"y": 8,
+		"x": -2222,
+		"y": -68,
 		"zoom": 1
 	}
 }
