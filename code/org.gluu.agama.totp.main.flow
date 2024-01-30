@@ -10,8 +10,10 @@ user | E = Trigger org.gluu.agama.totp.pw
 Log "@debug Authn user details " user
 // Init userId with user.data.userid
 userId = user.data.userId
+// Get Instance TOTPService
+OTPServiceObj | E = Call org.gluu.agama.totp#getInstance 
 // Get User's TOTP Secret key
-userTOTPSecretKey | E = Call org.gluu.agama.totp.IdentityProcessor#getUserTOTPSecretKey userId
+userTOTPSecretKey | E = Call OTPServiceObj getUserTOTPSecretKey userId
 // Debug Log User TOTP secret key 
 Log "@debug user TOTP secret key from flow " userTOTPSecretKey
 // Declare and map enrollData to easy usage
@@ -33,8 +35,8 @@ When userTOTPSecretKey is not null
      Log "@debug checkOTPValid check otp " checkOTPValid E
 When checkOTPValid.success is true
      // finish with success userId
-     it_poppo = {success:true, data: { userId: userId }}
-     Finish it_poppo
+     it_nzvoa = {success:true, data: { userId: userId }}
+     Finish it_nzvoa
 // Login Failed
-it_jgclk = {success:false, error: "login failed"}
-Finish it_jgclk
+it_bwpeg = {success:false, error: "login failed"}
+Finish it_bwpeg
