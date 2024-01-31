@@ -1,7 +1,6 @@
 package org.gluu.agama.totp;
 
-import org.gluu.agama.totp.jans.service.JansTOTPService;
-import org.gluu.agama.totp.jans.model.ContextData;
+import org.gluu.agama.totp.jans.JansTOTPService;
 
 public abstract class TOTPService {
 
