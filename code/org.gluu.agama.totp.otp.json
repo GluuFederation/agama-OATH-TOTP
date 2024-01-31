@@ -373,7 +373,7 @@
 					"displayName": "",
 					"hasComment": true,
 					"comment": "Get Instance TOTPService",
-					"javaClassName": "org.gluu.agama.totp",
+					"javaClassName": "org.gluu.agama.totp.TOTPService",
 					"javaMethodName": "getInstance",
 					"javaVariableName": "",
 					"exceptionVariableField": "E",
@@ -383,7 +383,8 @@
 					"arguments": [],
 					"nodeIcon": "material-symbols:code",
 					"asssignedVariableName": "OTPServiceObj"
-				}
+				},
+				"skake": false
 			},
 			"selected": true,
 			"dragging": false,
@@ -684,8 +685,8 @@
 		}
 	],
 	"viewport": {
-		"x": -1188.25404605807,
-		"y": 38.460627302675846,
-		"zoom": 1.4814237885822608
+		"x": 10,
+		"y": 15,
+		"zoom": 1
 	}
 }
