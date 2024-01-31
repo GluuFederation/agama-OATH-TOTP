@@ -11,7 +11,7 @@ Log "@debug Authn user details " user
 // Init userId with user.data.userid
 userId = user.data.userId
 // Get Instance TOTPService
-OTPServiceObj | E = Call org.gluu.agama.totp#getInstance 
+OTPServiceObj | E = Call org.gluu.agama.totp.TOTPService#getInstance 
 // Get User's TOTP Secret key
 userTOTPSecretKey | E = Call OTPServiceObj getUserTOTPSecretKey userId
 // Debug Log User TOTP secret key 
@@ -35,8 +35,8 @@ When userTOTPSecretKey is not null
      Log "@debug checkOTPValid check otp " checkOTPValid E
 When checkOTPValid.success is true
      // finish with success userId
-     it_raaby = {success:true, data: { userId: userId }}
-     Finish it_raaby
+     it_gsziw = {success:true, data: { userId: userId }}
+     Finish it_gsziw
 // Login Failed
-it_kervk = {success:false, error: "login failed"}
-Finish it_kervk
+it_wcqtk = {success:false, error: "login failed"}
+Finish it_wcqtk
