@@ -14,7 +14,7 @@ Use this project to add user authentication with OTOP(Time-based One-time Passwo
 
 ## How it works at a glance
 
-When then main flow of this project is launched (namely, `org.gluu.agama.totp.main`) it shows login page. User enters username and password. After user authn, OTP enrollmen page open for new user and if user is already enrolled then it will directly ask for OTP.
+When the main flow of this project is launched (namely, `org.gluu.agama.totp.main`) it shows the login page. The user enters a username and password. After the user authn, the OTP enrollmen page opens for new user and if a user is already enrolled then it will directly ask for OTP.
 
 ```mermaid
 sequenceDiagram
@@ -49,6 +49,36 @@ jans->>rp: Redirect with Success response
 rp->>rp: Validate response
 rp->>browser: Page is accessed
 ```
+
+## Flows
+
+The project consists of four flows that provide incremental functionality:
+
+- **org.gluu.agama.totp.main**: This is the main flow which you can directly launch from the browser. It first proceeds for user authn by triggering `org.gluu.agama.totp.pw` flow. Then helps to check user is already enrolled for TOTP 2FA or not. If a new user then trigger `org.gluu.agama.enroll` otherwise `org.gluu.agama.otp` and validate TOTP.
+
+- **org.gluu.agama.totp.pw**: This flow is used for user authn. It first asks the user to enter a username, and password, and validate the user.
+
+- **org.gluu.agama.enroll**: This flow is used to enroll new users into TOTP 2FA. It provides an enrollment page with a QR-Code. Users need to scan the QR-Code in any Authenticator App and enter OTP. At the end, it returns a validation response.
+
+- **org.gluu.agama.otp**: This flow is used to validate OTP. If the user is already enrolled in TOTP 2FA then it provides an OTP page and asks the user to enter an OTP and return a validation response.
+
+## Config
+
+Config parameters for main flow:
+
+```js
+"org.gluu.agama.totp.main": {
+    "qrCodeLabel": "Gluu",
+    "qrCodeAlg": "sha1",
+    "qrCodeKeyLength": 20
+}
+```
+
+| Name              | Description                                                        | Notes                     |
+| ----------------- | ------------------------------------------------------------------ | ------------------------- |
+| `qrCodeLabel`     | This config used to add your brand name into the center of QR Code | Keep it simple and little |
+| `qrCodeKeyLength` | Key length to generate Secret Key                                  | Default is `20`           |
+| `qrCodeAlg`       | Algorithm used to validate TOTP                                    | Default is `sha1`         |
 
 # Core Developers
 
