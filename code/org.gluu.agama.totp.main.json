@@ -71,7 +71,7 @@
 				},
 				"skake": false
 			},
-			"selected": true,
+			"selected": false,
 			"positionAbsolute": {
 				"x": 3245.496810563672,
 				"y": 118.40080775743363
@@ -997,7 +997,7 @@
 					"displayName": "",
 					"hasComment": true,
 					"comment": "Get Instance TOTPService",
-					"javaClassName": "org.gluu.agama.totp",
+					"javaClassName": "org.gluu.agama.totp.TOTPService",
 					"javaMethodName": "getInstance",
 					"javaVariableName": "org.gluu.agama.totp",
 					"exceptionVariableField": "E",
@@ -1010,7 +1010,7 @@
 				},
 				"skake": false
 			},
-			"selected": false,
+			"selected": true,
 			"positionAbsolute": {
 				"x": 1143.1141316191488,
 				"y": 123.47282597234039
@@ -1054,7 +1054,8 @@
 						"userId"
 					],
 					"nodeIcon": "material-symbols:code",
-					"asssignedVariableName": "userTOTPSecretKey"
+					"asssignedVariableName": "userTOTPSecretKey",
+					"nodeColor": "#84e1a5"
 				},
 				"skake": false
 			},
@@ -1384,8 +1385,8 @@
 		}
 	],
 	"viewport": {
-		"x": -2222,
-		"y": -68,
+		"x": -394,
+		"y": 69,
 		"zoom": 1
 	}
 }
