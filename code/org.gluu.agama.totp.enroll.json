@@ -161,7 +161,7 @@
 				},
 				"skake": false
 			},
-			"selected": true,
+			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 2588,
@@ -709,7 +709,7 @@
 					"displayName": "",
 					"hasComment": true,
 					"comment": "Get Instance TOTPService",
-					"javaClassName": "org.gluu.agama.totp",
+					"javaClassName": "org.gluu.agama.totp.TOTPService",
 					"javaMethodName": "getInstance",
 					"javaVariableName": "",
 					"exceptionVariableField": "E",
@@ -719,9 +719,10 @@
 					"arguments": [],
 					"nodeIcon": "material-symbols:code",
 					"asssignedVariableName": "OTPServiceObj"
-				}
+				},
+				"skake": false
 			},
-			"selected": false,
+			"selected": true,
 			"positionAbsolute": {
 				"x": 501,
 				"y": 70
@@ -733,8 +734,8 @@
 			"height": 124,
 			"id": "Agama-call-Node-4fc43ccf-0635-4caa-b29f-d19bb783b4a8",
 			"position": {
-				"x": 725,
-				"y": 63
+				"x": 722,
+				"y": 77
 			},
 			"type": "call",
 			"data": {
@@ -744,8 +745,8 @@
 				"whenCondition": "",
 				"inRepeatBlock": "",
 				"position": {
-					"x": 725,
-					"y": 63
+					"x": 722,
+					"y": 77
 				},
 				"agamaData": {
 					"id": "Agama-call-Node-4fc43ccf-0635-4caa-b29f-d19bb783b4a8",
@@ -772,15 +773,16 @@
 					"hasSuccess": "",
 					"hasFailure": "",
 					"hasNoRepeat": false,
-					"hasRepeat": false
+					"hasRepeat": false,
+					"nodeColor": "#92e8a3"
 				},
 				"skake": false
 			},
 			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
-				"x": 725,
-				"y": 63
+				"x": 722,
+				"y": 77
 			},
 			"parentId": "Agama-call-Node-a9159d77-245e-4962-8d19-9f3a7d8a612a",
 			"whenCondition": "",
@@ -1093,8 +1095,8 @@
 		}
 	],
 	"viewport": {
-		"x": -1908,
-		"y": 22,
+		"x": 10,
+		"y": 15,
 		"zoom": 1
 	}
 }
