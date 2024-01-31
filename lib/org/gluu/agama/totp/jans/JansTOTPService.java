@@ -35,6 +35,15 @@ public class JansTOTPService extends TOTPService {
     private static final String EXT_ATTR = "jansExtUid";
     private static final String EXT_UID_PREFIX = "totp:";
 
+    private static JansTOTPService INSTANCE = null;
+    private JansTOTPService() {}
+    public static synchronized JansTOTPService getInstance()
+    {
+        if (INSTANCE == null)
+            INSTANCE = new JansTOTPService();
+
+        return INSTANCE;
+    }
 
     public String generateSecretKey(int keyLen) throws NoSuchAlgorithmException {
         byte[] randomBytes = new byte[keyLen];
