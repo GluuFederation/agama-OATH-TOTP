@@ -4,7 +4,7 @@ Flow org.gluu.agama.totp.enroll
 // Starting otp enrollment flow
 Log "@debug otp enrollment for user " userId
 // Get Instance TOTPService
-OTPServiceObj | E = Call org.gluu.agama.totp#getInstance 
+OTPServiceObj | E = Call org.gluu.agama.totp.TOTPService#getInstance 
 // Generate secret key 
 secretKey = Call OTPServiceObj generateSecretKey qrCodeKeyLength
 // Generate Secret code URI for QR Code
