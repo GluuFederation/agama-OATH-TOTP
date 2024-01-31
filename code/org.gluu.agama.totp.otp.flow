@@ -9,7 +9,7 @@ scanCode = RRF "otplogin.ftlh"
 // Debug Log: Log OTP which is entered by User
 Log "@debug scan code : " scanCode.code
 // Get Instance TOTPService
-OTPServiceObj | E = Call org.gluu.agama.totp#getInstance 
+OTPServiceObj | E = Call org.gluu.agama.totp.TOTPService#getInstance 
 // Call validateTOTP method to check OTP is valid or not
 otpCheck | E = Call OTPServiceObj validateTOTP scanCode.code secretKey qrCodeAlg
 // Debug Log : OTP check result
