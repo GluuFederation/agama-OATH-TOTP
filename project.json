@@ -3,7 +3,7 @@
     "description": "Agama OAuth TOPT based enroll and authn with Jans Server",
     "type": "community",
     "author": "GluuFederation",
-    "version": "0.0.1",
+    "version": "1.1.0",
     "authorWebsite": "https://github.com/GluuFederation/agama-OATH-TOTP",
     "githubUri": "https://github.com/GluuFederation/agama-OATH-TOTP",
     "license": "apache-2.0",
