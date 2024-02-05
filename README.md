@@ -67,10 +67,12 @@ The project consists of four flows that provide incremental functionality:
 Config parameters for main flow:
 
 ```js
-"org.gluu.agama.totp.main": {
-    "qrCodeLabel": "Gluu",
-    "qrCodeAlg": "sha1",
-    "qrCodeKeyLength": 20
+{
+  "org.gluu.agama.totp.main": {
+      "qrCodeLabel": "Gluu",
+      "qrCodeAlg": "sha1",
+      "qrCodeKeyLength": 20
+  }
 }
 ```
 
