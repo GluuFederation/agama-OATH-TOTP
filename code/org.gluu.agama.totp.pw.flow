@@ -1,0 +1,23 @@
+Flow org.gluu.agama.totp.pw
+     Basepath ""
+Log "@info init objects"
+// initialize auth server
+authService = Call io.jans.as.server.service.AuthenticationService#class 
+// Initialize CdiUtils
+cdiUtil = Call io.jans.service.cdi.util.CdiUtil#bean authService
+// Declare authResult
+authResult = {}
+// retry login 3 times
+Repeat 3 times max
+     // Load login page and get username & pasword
+     creds = RRF "login.ftlh" authResult
+     // check username password auth
+     authResult.success = Call cdiUtil authenticate creds.username creds.password
+     // assign creds.username to authResult.uid
+     authResult.uid = creds.username
+     // authResult.success is true
+     When authResult.success is true
+          it_eobgl = {success:true, data: {userId: authResult.uid}}
+          Finish it_eobgl
+it_nnynr = {success:false, error: "false"}
+Finish it_nnynr

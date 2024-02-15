@@ -1,0 +1,42 @@
+// Main flow to handle all sub flows
+Flow org.gluu.agama.totp.main
+     Basepath ""
+     Configs conf
+// Log Proceeding for user authn
+Log "@debug proceeding for user authn"
+// Trigger User Authn PW ask Username password login
+user | E = Trigger org.gluu.agama.totp.pw 
+// log authenticated user
+Log "@debug Authn user details " user
+// Init userId with user.data.userid
+userId = user.data.userId
+// Get Instance TOTPService
+OTPServiceObj | E = Call org.gluu.agama.totp.TOTPService#getInstance 
+// Get User's TOTP Secret key
+userTOTPSecretKey | E = Call OTPServiceObj getUserTOTPSecretKey userId
+// Debug Log User TOTP secret key 
+Log "@debug user TOTP secret key from flow " userTOTPSecretKey
+// Declare and map enrollData to easy usage
+checkOTPValid = null
+qrCodeAlg = conf.qrCodeAlg
+qrCodeLabel = conf.qrCodeLabel
+qrCodeKeyLength = conf.qrCodeKeyLength
+// if no enrollment exist
+When userTOTPSecretKey is null
+     // Trigger enrollment flow, Load enroll.ftlh page, ask to scan code, enter code and check OTP is valid or not
+     checkOTPValid | E = Trigger org.gluu.agama.totp.enroll userId qrCodeAlg qrCodeKeyLength qrCodeLabel
+     // Debug Log result of OTP Check valid or not
+     Log "@debug checkOTPValid enroll " checkOTPValid E
+// if user is already enrolled
+When userTOTPSecretKey is not null
+     // Trigger otp flow
+     checkOTPValid | E = Trigger org.gluu.agama.totp.otp userId userTOTPSecretKey qrCodeAlg
+     // Debug Log: result of OTP Check valid or not
+     Log "@debug checkOTPValid check otp " checkOTPValid E
+When checkOTPValid.success is true
+     // finish with success userId
+     it_icpub = {success:true, data: { userId: userId }}
+     Finish it_icpub
+// Login Failed
+it_zdzxd = {success:false, error: "login failed"}
+Finish it_zdzxd
