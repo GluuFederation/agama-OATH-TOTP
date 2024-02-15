@@ -3,7 +3,7 @@
     "description": "Open Authentication (OATH) defined Time-based One Time Password (TOTP) - Gluu Agama Plugin",
     "type": "community",
     "author": "GluuFederation",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "authorWebsite": "https://github.com/GluuFederation/agama-OATH-TOTP",
     "githubUri": "https://github.com/GluuFederation/agama-OATH-TOTP",
     "license": "apache-2.0",
