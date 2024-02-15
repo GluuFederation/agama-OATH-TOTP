@@ -161,7 +161,7 @@
 				},
 				"skake": false
 			},
-			"selected": true,
+			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 2588,
@@ -279,7 +279,7 @@
 					"configParams": "{}",
 					"nodeIcon": "material-symbols:line-start-square",
 					"timeout": "",
-					"inputs": "userId qrCodeAlg qrCodeKeyLength qrCodeLabel",
+					"inputs": "userId qrCodeAlg qrCodeKeyLength qrCodeLabel qrCodeIssuer",
 					"configs": "",
 					"flowname": "org.gluu.agama.totp.enroll"
 				},
@@ -560,7 +560,7 @@
 					"inRepeatBlock": false,
 					"arguments": [
 						"secretKey",
-						"\"gluu\"",
+						"qrCodeIssuer",
 						"userId"
 					],
 					"nodeIcon": "material-symbols:code",
@@ -571,7 +571,7 @@
 				},
 				"skake": false
 			},
-			"selected": false,
+			"selected": true,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 920,
@@ -1095,8 +1095,8 @@
 		}
 	],
 	"viewport": {
-		"x": 64.76074798386492,
-		"y": 132.4275942433244,
-		"zoom": 0.7036260593713374
+		"x": -230,
+		"y": 86,
+		"zoom": 1
 	}
 }
