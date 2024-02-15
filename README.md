@@ -69,6 +69,7 @@ Config parameters for main flow:
 ```js
 {
   "org.gluu.agama.totp.main": {
+      "issuer": "your-host-or-title",
       "qrCodeLabel": "Gluu",
       "qrCodeAlg": "sha1",
       "qrCodeKeyLength": 20
@@ -78,8 +79,8 @@ Config parameters for main flow:
 
 | Name              | Description                                                               | Notes                                   |
 | ----------------- | ------------------------------------------------------------------------- | --------------------------------------- |
-| `issuer`          | Your server host or name to easily identified issuer in Authenticator app | Keep it simple and little e.g. gluu.org |
-| `qrCodeLabel`     | This config used to add your brand name into the center of QR Code        | Keep it simple and little               |
+| `issuer`          | Your server host or name to easily identify issuer in the Authenticator app | Keep it simple and little e.g. gluu.org |
+| `qrCodeLabel`     | This config is used to add your brand name into the center of QR Code        | Keep it simple and little               |
 | `qrCodeKeyLength` | Key length to generate Secret Key                                         | Default is `20`                         |
 | `qrCodeAlg`       | Algorithm used to validate TOTP                                           | Default is `sha1`                       |
 
