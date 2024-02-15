@@ -731,7 +731,7 @@
 					"comment": "Main flow to handle all sub flows",
 					"isTopLevelFlow": true,
 					"basepath": "",
-					"configParams": "{\n  \"qrCodeLabel\": \"Gluu\",\n  \"qrCodeAlg\": \"sha1\",\n  \"qrCodeKeyLength\": 20\n}",
+					"configParams": "{\n  \"issuer\": \"your-server-host-name\",\n  \"qrCodeLabel\": \"Gluu\",\n  \"qrCodeAlg\": \"sha1\",\n  \"qrCodeKeyLength\": 20\n}",
 					"nodeIcon": "material-symbols:line-start-square",
 					"timeout": "",
 					"inputs": "",
@@ -744,7 +744,7 @@
 				"x": 72,
 				"y": 120
 			},
-			"selected": false,
+			"selected": true,
 			"positionAbsolute": {
 				"x": 72,
 				"y": 120
@@ -1010,7 +1010,7 @@
 				},
 				"skake": false
 			},
-			"selected": true,
+			"selected": false,
 			"positionAbsolute": {
 				"x": 1143.1141316191488,
 				"y": 123.47282597234039
