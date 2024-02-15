@@ -518,7 +518,8 @@
 						"userId",
 						"qrCodeAlg",
 						"qrCodeKeyLength",
-						"qrCodeLabel"
+						"qrCodeLabel",
+						"qrCodeIssuer"
 					],
 					"asssignedVariableName": "checkOTPValid",
 					"exceptionVariableField": "E",
@@ -526,7 +527,7 @@
 				},
 				"skake": false
 			},
-			"selected": false,
+			"selected": true,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 2296,
@@ -744,7 +745,7 @@
 				"x": 72,
 				"y": 120
 			},
-			"selected": true,
+			"selected": false,
 			"positionAbsolute": {
 				"x": 72,
 				"y": 120
@@ -844,6 +845,11 @@
 							"variableTypeCheck": false,
 							"assignmentExpression": "conf.qrCodeKeyLength",
 							"assignedVariableName": "qrCodeKeyLength"
+						},
+						{
+							"variableTypeCheck": false,
+							"assignmentExpression": "conf.issuer",
+							"assignedVariableName": "qrCodeIssuer"
 						}
 					],
 					"nodeIcon": "material-symbols:equal"
@@ -1385,8 +1391,8 @@
 		}
 	],
 	"viewport": {
-		"x": 10,
-		"y": 15,
+		"x": -1629,
+		"y": -62,
 		"zoom": 1
 	}
 }
