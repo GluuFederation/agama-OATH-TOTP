@@ -1,6 +1,6 @@
 Flow org.gluu.agama.totp.enroll
      Basepath ""
-     Inputs userId qrCodeAlg qrCodeKeyLength qrCodeLabel
+     Inputs userId qrCodeAlg qrCodeKeyLength qrCodeLabel qrCodeIssuer
 // Starting otp enrollment flow
 Log "@debug otp enrollment for user " userId
 // Get Instance TOTPService
@@ -8,7 +8,7 @@ OTPServiceObj | E = Call org.gluu.agama.totp.TOTPService#getInstance
 // Generate secret key 
 secretKey = Call OTPServiceObj generateSecretKey qrCodeKeyLength
 // Generate Secret code URI for QR Code
-secretKeyUri | E = Call OTPServiceObj generateTotpSecretKeyUri secretKey "gluu" userId
+secretKeyUri | E = Call OTPServiceObj generateTotpSecretKeyUri secretKey qrCodeIssuer userId
 // Debug log secret key URI
 Log "@debug secretKeyUri : " secretKeyUri  E
 // Map Obj(secretKeyUri, qrCodeLabel)  for enroll.ftlh RRF page
