@@ -71,11 +71,8 @@ public class JansTOTPService extends TOTPService {
         byte[] key = secretKey.getBytes();
         HmacShaAlgorithm algorithm = HmacShaAlgorithm.from("Hmac" + alg.toUpperCase());
 
-        logger.debug("validateTOTP. algorithm ", algorithm);
         TOTP totp = TOTP.key(key).timeStep(TimeUnit.SECONDS.toMillis(TIME_STEP)).digits(DIGITS).hmacSha(algorithm).build();
-        logger.debug("validateTOTP. client OTP ", clientTOTP);
-        logger.debug("validateTOTP. totp OTP ", totp.value());
-        
+ 
         if (totp.value().equals(clientTOTP)) {
             return true
         } else {

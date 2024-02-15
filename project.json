@@ -14,12 +14,14 @@
         "2fa"
     ],
     "noDirectLaunch": [
-        "org.gluu.agama.totp.pw"
+        "org.gluu.agama.totp.pw",
+        "org.gluu.agama.totp.enroll"
     ],
     "configs": {
         "org.gluu.agama.totp.pw": {},
         "org.gluu.agama.totp.enroll": {},
         "org.gluu.agama.totp.main": {
+            "issuer": "your-server-host-name",
             "qrCodeLabel": "Gluu",
             "qrCodeAlg": "sha1",
             "qrCodeKeyLength": 20
