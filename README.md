@@ -76,11 +76,12 @@ Config parameters for main flow:
 }
 ```
 
-| Name              | Description                                                        | Notes                     |
-| ----------------- | ------------------------------------------------------------------ | ------------------------- |
-| `qrCodeLabel`     | This config used to add your brand name into the center of QR Code | Keep it simple and little |
-| `qrCodeKeyLength` | Key length to generate Secret Key                                  | Default is `20`           |
-| `qrCodeAlg`       | Algorithm used to validate TOTP                                    | Default is `sha1`         |
+| Name              | Description                                                               | Notes                                   |
+| ----------------- | ------------------------------------------------------------------------- | --------------------------------------- |
+| `issuer`          | Your server host or name to easily identified issuer in Authenticator app | Keep it simple and little e.g. gluu.org |
+| `qrCodeLabel`     | This config used to add your brand name into the center of QR Code        | Keep it simple and little               |
+| `qrCodeKeyLength` | Key length to generate Secret Key                                         | Default is `20`                         |
+| `qrCodeAlg`       | Algorithm used to validate TOTP                                           | Default is `sha1`                       |
 
 # Core Developers
 
