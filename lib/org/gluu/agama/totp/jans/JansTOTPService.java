@@ -98,7 +98,7 @@ public class JansTOTPService extends TOTPService {
             userService.updateUser(user);
             return extUidPrefixTotpSecretKey
         }
-        return jansExtUidFieldValue
+        return extUidPrefixTotpSecretKey
     }
 
     public String getUserTOTPSecretKey(String uid)
@@ -143,7 +143,7 @@ public class JansTOTPService extends TOTPService {
         if (externalId == null) {
             return null
         }
-        
+
         int colonIndex = externalId.indexOf(':');
         return externalId.substring(colonIndex + 1);
     }
