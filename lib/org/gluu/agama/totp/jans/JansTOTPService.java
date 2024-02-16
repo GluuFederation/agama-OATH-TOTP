@@ -140,7 +140,11 @@ public class JansTOTPService extends TOTPService {
     }    
 
     private static String extractSecretKey(String externalId) {
-        int colonIndex = input.indexOf(':');
-        return input.substring(colonIndex + 1);
+        if (externalId == null) {
+            return null
+        }
+        
+        int colonIndex = externalId.indexOf(':');
+        return externalId.substring(colonIndex + 1);
     }
 }
