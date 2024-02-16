@@ -10,7 +10,7 @@
 
 Welcome to the [https://github.com/GluuFederation/agama-OATH-TOTP](https://github.com/GluuFederation/agama-OATH-TOTP) project. This project is governed by Gluu and published under an Apache 2.0 license.
 
-Use this project to add user authentication with OTOP(Time-based One-time Passwords) 2-factor authentication.
+Use this project to add user authentication with TOTP(Time-based One-time Passwords) 2-factor authentication.
 
 ## How it works at a glance
 
