@@ -111,7 +111,8 @@ public class JansTOTPService extends TOTPService {
         }
         String jansExtUidFieldValue = getSingleValuedAttr(user, EXT_ATTR);
         logger.debug("User ext uid getUserTOTPSecretKey ", jansExtUidFieldValue);
-        return jansExtUidFieldValue
+
+        return extractSecretKey(jansExtUidFieldValue)
     }
 
     private static String base32Encode(String input) {
@@ -135,6 +136,11 @@ public class JansTOTPService extends TOTPService {
     }
 
     private static String externalIdOf(String id) {
-        return id;
+        return EXT_UID_PREFIX + id;
     }    
+
+    private static String extractSecretKey(String externalId) {
+        int colonIndex = input.indexOf(':');
+        return input.substring(colonIndex + 1);
+    }
 }
