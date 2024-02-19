@@ -107,7 +107,7 @@ public class JansTOTPService extends TOTPService {
             logger.error("User identified with {} not found!", uid);
             throw new IOException("Target user for account linking does not exist");
         }
-        String[] jansExtUidFieldValues =  user.getAttribute(attribute, true, true);
+        String[] jansExtUidFieldValues =  user.getAttribute(EXT_ATTR, true, true);
         logger.debug("User ext uid getUserTOTPSecretKey ", jansExtUidFieldValues);
         
         String totpValue = findTOTPInExtAttrValue(jansExtUidFieldValues)
