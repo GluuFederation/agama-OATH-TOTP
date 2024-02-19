@@ -112,7 +112,7 @@ public class JansTOTPService extends TOTPService {
         
         String totpValue = findTOTPInExtAttrValue(jansExtUidFieldValues)
         logger.debug("User totpValue ", totpValue);
-        return extractSecretKey(jansExtUidFieldValue)
+        return extractSecretKey(totpValue)
     }
 
     private static String base32Encode(String input) {
@@ -161,7 +161,7 @@ public class JansTOTPService extends TOTPService {
         if (array == null) {
             return -1
         }
-        
+
         for (int i = 0; i < array.length; i++) {
             if (array[i].indexOf(target) == 0) {
                 return i; // Return the index if the target string is found
