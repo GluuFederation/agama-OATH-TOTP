@@ -527,7 +527,7 @@
 				},
 				"skake": false
 			},
-			"selected": true,
+			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 2296,
@@ -780,7 +780,7 @@
 					"comment": "Debug Log User TOTP secret key ",
 					"whenCondition": "",
 					"inRepeatBlock": false,
-					"logMessage": "\"user TOTP secret key from flow \" userTOTPSecretKey",
+					"logMessage": "\"user TOTP secret key from flow \" userTOTPSecretKey E",
 					"logLevel": "debug",
 					"nodeIcon": "octicon:log-16",
 					"hasSuccess": "",
@@ -790,7 +790,7 @@
 				},
 				"skake": false
 			},
-			"selected": false,
+			"selected": true,
 			"positionAbsolute": {
 				"x": 1616,
 				"y": 127
@@ -1391,8 +1391,8 @@
 		}
 	],
 	"viewport": {
-		"x": -1629,
-		"y": -62,
+		"x": -514,
+		"y": 68,
 		"zoom": 1
 	}
 }
