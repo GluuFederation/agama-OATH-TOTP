@@ -23,6 +23,7 @@ import io.jans.orm.exception.operation.EntryNotFoundException;
 import io.jans.service.cdi.util.CdiUtil;
 import io.jans.util.StringHelper;
 import java.io.IOException;
+
 import java.util.*;
 
 public class JansTOTPService extends TOTPService {
@@ -74,9 +75,9 @@ public class JansTOTPService extends TOTPService {
         TOTP totp = TOTP.key(key).timeStep(TimeUnit.SECONDS.toMillis(TIME_STEP)).digits(DIGITS).hmacSha(algorithm).build();
  
         if (totp.value().equals(clientTOTP)) {
-            return true
+            return true;
         } else {
-            return false
+            return false;
         }
     }
 
@@ -88,15 +89,14 @@ public class JansTOTPService extends TOTPService {
             logger.error("User identified with {} not found!", uid);
             throw new IOException("Target user for account linking does not exist");
         }
-        String extUidPrefixTotpSecretKey = externalIdOf(totpSecretKey)
+        String extUidPrefixTotpSecretKey = externalIdOf(totpSecretKey);
         logger.debug("User ext uid not found");
-        user.addUserAttribute(EXT_ATTR, extUidPrefixTotpSecretKey, true);
 
-        long now = System.currentTimeMillis();
-        user.setAttribute("jansOTPDevices", uid + ":" + now, false);
         UserService userService = CdiUtil.bean(UserService.class);
-        userService.updateUser(user);
-        return extUidPrefixTotpSecretKey
+        userService.addUserAttribute(uid, EXT_ATTR, extUidPrefixTotpSecretKey, true);
+        long now = System.currentTimeMillis();
+        userService.addUserAttribute(uid, "jansOTPDevices", uid + ":" + now, false);
+        return extUidPrefixTotpSecretKey;
     }
 
     public String getUserTOTPSecretKey(String uid)
@@ -112,7 +112,7 @@ public class JansTOTPService extends TOTPService {
         
         String totpValue = findTOTPInExtAttrValue(jansExtUidFieldValues)
         logger.debug("User totpValue ", totpValue);
-        return extractSecretKey(totpValue)
+        return extractSecretKey(totpValue);
     }
 
     private static String base32Encode(String input) {
@@ -140,17 +140,17 @@ public class JansTOTPService extends TOTPService {
     }    
 
     private static String findTOTPInExtAttrValue(String[] jansExtUidFieldValues) {
-        int totpIndex = findElement(jansExtUidFieldValues, "totp:")
+        int totpIndex = findElement(jansExtUidFieldValues, "totp:");
         if (totpIndex != -1) {
-            return jansExtUidFieldValues[totpIndex]
+            return jansExtUidFieldValues[totpIndex];
         }
 
-        return null
+        return null;
     }
 
     private static String extractSecretKey(String externalId) {
         if (externalId == null) {
-            return null
+            return null;
         }
 
         int colonIndex = externalId.indexOf(':');
@@ -159,7 +159,7 @@ public class JansTOTPService extends TOTPService {
 
     private static int findElement(String[] array, String target) {
         if (array == null) {
-            return -1
+            return -1;
         }
 
         for (int i = 0; i < array.length; i++) {
