@@ -23,6 +23,7 @@ import io.jans.orm.exception.operation.EntryNotFoundException;
 import io.jans.service.cdi.util.CdiUtil;
 import io.jans.util.StringHelper;
 import java.io.IOException;
+import org.json.JSONArray;
 
 import java.util.*;
 
@@ -107,9 +108,8 @@ public class JansTOTPService extends TOTPService {
             logger.error("User identified with {} not found!", uid);
             throw new IOException("Target user for account linking does not exist");
         }
-        String[] jansExtUidFieldValues =  user.getAttribute(EXT_ATTR, true, true);
+        JSONArray jansExtUidFieldValues =  user.getAttribute(EXT_ATTR, true, true);
         logger.debug("User ext uid getUserTOTPSecretKey ", jansExtUidFieldValues);
-        
         String totpValue = findTOTPInExtAttrValue(jansExtUidFieldValues);
         logger.debug("User totpValue ", totpValue);
         return extractSecretKey(totpValue);
@@ -139,10 +139,10 @@ public class JansTOTPService extends TOTPService {
         return EXT_UID_PREFIX + id;
     }    
 
-    private static String findTOTPInExtAttrValue(String[] jansExtUidFieldValues) {
+    private static String findTOTPInExtAttrValue(JSONArray jansExtUidFieldValues) {
         int totpIndex = findElement(jansExtUidFieldValues, "totp:");
         if (totpIndex != -1) {
-            return jansExtUidFieldValues[totpIndex];
+            return jansExtUidFieldValues.getString(totpIndex);
         }
 
         return null;
@@ -157,13 +157,13 @@ public class JansTOTPService extends TOTPService {
         return externalId.substring(colonIndex + 1);
     }
 
-    private static int findElement(String[] array, String target) {
+    private static int findElement(JSONArray array, String target) {
         if (array == null) {
             return -1;
         }
 
-        for (int i = 0; i < array.length; i++) {
-            if (array[i].indexOf(target) == 0) {
+        for (int i = 0; i < array.length(); i++) {
+            if (array.getString(i).indexOf(target) == 0) {
                 return i; // Return the index if the target string is found
             }
         }
