@@ -158,6 +158,10 @@ public class JansTOTPService extends TOTPService {
     }
 
     private static int findElement(String[] array, String target) {
+        if (array == null) {
+            return -1
+        }
+        
         for (int i = 0; i < array.length; i++) {
             if (array[i].indexOf(target) == 0) {
                 return i; // Return the index if the target string is found
