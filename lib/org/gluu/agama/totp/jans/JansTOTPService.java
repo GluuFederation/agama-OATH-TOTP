@@ -110,7 +110,7 @@ public class JansTOTPService extends TOTPService {
         String[] jansExtUidFieldValues =  user.getAttribute(EXT_ATTR, true, true);
         logger.debug("User ext uid getUserTOTPSecretKey ", jansExtUidFieldValues);
         
-        String totpValue = findTOTPInExtAttrValue(jansExtUidFieldValues)
+        String totpValue = findTOTPInExtAttrValue(jansExtUidFieldValues);
         logger.debug("User totpValue ", totpValue);
         return extractSecretKey(totpValue);
     }
