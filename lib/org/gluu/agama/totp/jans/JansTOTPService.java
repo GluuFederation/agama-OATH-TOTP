@@ -89,15 +89,13 @@ public class JansTOTPService extends TOTPService {
             throw new IOException("Target user for account linking does not exist");
         }
         String extUidPrefixTotpSecretKey = externalIdOf(totpSecretKey)
-        String jansExtUidFieldValue = getSingleValuedAttr(user, EXT_ATTR);
-        logger.debug("User ext uid ", jansExtUidFieldValue);
-        if (jansExtUidFieldValue == null) {
-            logger.debug("User ext uid not found");
-            user.setAttribute(EXT_ATTR, extUidPrefixTotpSecretKey, true);
-            UserService userService = CdiUtil.bean(UserService.class);
-            userService.updateUser(user);
-            return extUidPrefixTotpSecretKey
-        }
+        logger.debug("User ext uid not found");
+        user.addUserAttribute(EXT_ATTR, extUidPrefixTotpSecretKey, true);
+
+        long now = System.currentTimeMillis();
+        user.setAttribute("jansOTPDevices", uid + ":" + now, false);
+        UserService userService = CdiUtil.bean(UserService.class);
+        userService.updateUser(user);
         return extUidPrefixTotpSecretKey
     }
 
@@ -109,9 +107,11 @@ public class JansTOTPService extends TOTPService {
             logger.error("User identified with {} not found!", uid);
             throw new IOException("Target user for account linking does not exist");
         }
-        String jansExtUidFieldValue = getSingleValuedAttr(user, EXT_ATTR);
-        logger.debug("User ext uid getUserTOTPSecretKey ", jansExtUidFieldValue);
-
+        String[] jansExtUidFieldValues =  user.getAttribute(attribute, true, true);
+        logger.debug("User ext uid getUserTOTPSecretKey ", jansExtUidFieldValues);
+        
+        String totpValue = findTOTPInExtAttrValue(jansExtUidFieldValues)
+        logger.debug("User totpValue ", totpValue);
         return extractSecretKey(jansExtUidFieldValue)
     }
 
@@ -139,6 +139,15 @@ public class JansTOTPService extends TOTPService {
         return EXT_UID_PREFIX + id;
     }    
 
+    private static String findTOTPInExtAttrValue(String[] jansExtUidFieldValues) {
+        int totpIndex = findElement(jansExtUidFieldValues, "totp:")
+        if (totpIndex != -1) {
+            return jansExtUidFieldValues[totpIndex]
+        }
+
+        return null
+    }
+
     private static String extractSecretKey(String externalId) {
         if (externalId == null) {
             return null
@@ -146,5 +155,14 @@ public class JansTOTPService extends TOTPService {
 
         int colonIndex = externalId.indexOf(':');
         return externalId.substring(colonIndex + 1);
+    }
+
+    private static int findElement(String[] array, String target) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].indexOf(target) == 0) {
+                return i; // Return the index if the target string is found
+            }
+        }
+        return -1; // Return -1 if the target string is not found in the array
     }
 }
