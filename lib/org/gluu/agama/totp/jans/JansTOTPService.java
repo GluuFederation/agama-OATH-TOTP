@@ -96,7 +96,8 @@ public class JansTOTPService extends TOTPService {
         UserService userService = CdiUtil.bean(UserService.class);
         userService.addUserAttribute(uid, EXT_ATTR, extUidPrefixTotpSecretKey, true);
         long now = System.currentTimeMillis();
-        userService.addUserAttribute(uid, "jansOTPDevices", uid + ":" + now, false);
+        String deviceJsonString = "{\"devices\":[{\"nickName\":\"OTP app\",\"addedOn\":"+ now +",\"id\":" + uid.hashCode() +",\"soft\":true}]}";
+        userService.addUserAttribute(uid, "jansOTPDevices", deviceJsonString, false);
         return extUidPrefixTotpSecretKey;
     }
 
