@@ -10,7 +10,7 @@
 
 Welcome to the [https://github.com/GluuFederation/agama-OATH-TOTP](https://github.com/GluuFederation/agama-OATH-TOTP) project. This project is governed by Gluu and published under an Apache 2.0 license.
 
-Use this project to add user authentication with OTOP(Time-based One-time Passwords) 2-factor authentication.
+Use this project to add user authentication with TOTP(Time-based One-time Passwords) 2-factor authentication.
 
 ## How it works at a glance
 
@@ -77,12 +77,12 @@ Config parameters for main flow:
 }
 ```
 
-| Name              | Description                                                               | Notes                                   |
-| ----------------- | ------------------------------------------------------------------------- | --------------------------------------- |
-| `issuer`          | Your server host or name to easily identify issuer in the Authenticator app | Keep it simple and little e.g. gluu.org |
-| `qrCodeLabel`     | This config is used to add your brand name into the center of QR Code        | Keep it simple and little               |
-| `qrCodeKeyLength` | Key length to generate Secret Key                                         | Default is `20`                         |
-| `qrCodeAlg`       | Algorithm used to validate TOTP                                           | Default is `sha1`                       |
+| Name              | Description                                                           | Notes                                   |
+| ----------------- | --------------------------------------------------------------------- | --------------------------------------- |
+| `issuer`          | Issuer of the OTP service                                             | Keep it simple and little e.g. gluu.org |
+| `qrCodeLabel`     | This config is used to add your brand name into the center of QR Code | Keep it simple and little               |
+| `qrCodeKeyLength` | Key length to generate Secret Key                                     | Default is `20`                         |
+| `qrCodeAlg`       | Algorithm used to validate TOTP                                       | Default is `sha1`                       |
 
 # Core Developers
 

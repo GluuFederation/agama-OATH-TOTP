@@ -23,6 +23,8 @@ import io.jans.orm.exception.operation.EntryNotFoundException;
 import io.jans.service.cdi.util.CdiUtil;
 import io.jans.util.StringHelper;
 import java.io.IOException;
+import org.json.JSONArray;
+
 import java.util.*;
 
 public class JansTOTPService extends TOTPService {
@@ -74,9 +76,9 @@ public class JansTOTPService extends TOTPService {
         TOTP totp = TOTP.key(key).timeStep(TimeUnit.SECONDS.toMillis(TIME_STEP)).digits(DIGITS).hmacSha(algorithm).build();
  
         if (totp.value().equals(clientTOTP)) {
-            return true
+            return true;
         } else {
-            return false
+            return false;
         }
     }
 
@@ -88,17 +90,15 @@ public class JansTOTPService extends TOTPService {
             logger.error("User identified with {} not found!", uid);
             throw new IOException("Target user for account linking does not exist");
         }
-        String extUidPrefixTotpSecretKey = externalIdOf(totpSecretKey)
-        String jansExtUidFieldValue = getSingleValuedAttr(user, EXT_ATTR);
-        logger.debug("User ext uid ", jansExtUidFieldValue);
-        if (jansExtUidFieldValue == null) {
-            logger.debug("User ext uid not found");
-            user.setAttribute(EXT_ATTR, extUidPrefixTotpSecretKey, true);
-            UserService userService = CdiUtil.bean(UserService.class);
-            userService.updateUser(user);
-            return extUidPrefixTotpSecretKey
-        }
-        return jansExtUidFieldValue
+        String extUidPrefixTotpSecretKey = externalIdOf(totpSecretKey);
+        logger.debug("User ext uid not found");
+
+        UserService userService = CdiUtil.bean(UserService.class);
+        userService.addUserAttribute(uid, EXT_ATTR, extUidPrefixTotpSecretKey, true);
+        long now = System.currentTimeMillis();
+        String deviceJsonString = "{\"devices\":[{\"nickName\":\"OTP app\",\"addedOn\":"+ now +",\"id\":" + uid.hashCode() +",\"soft\":true}]}";
+        userService.addUserAttribute(uid, "jansOTPDevices", deviceJsonString, false);
+        return extUidPrefixTotpSecretKey;
     }
 
     public String getUserTOTPSecretKey(String uid)
@@ -109,9 +109,11 @@ public class JansTOTPService extends TOTPService {
             logger.error("User identified with {} not found!", uid);
             throw new IOException("Target user for account linking does not exist");
         }
-        String jansExtUidFieldValue = getSingleValuedAttr(user, EXT_ATTR);
-        logger.debug("User ext uid getUserTOTPSecretKey ", jansExtUidFieldValue);
-        return jansExtUidFieldValue
+        JSONArray jansExtUidFieldValues =  user.getAttribute(EXT_ATTR, true, true);
+        logger.debug("User ext uid getUserTOTPSecretKey ", jansExtUidFieldValues);
+        String totpValue = findTOTPInExtAttrValue(jansExtUidFieldValues);
+        logger.debug("User totpValue ", totpValue);
+        return extractSecretKey(totpValue);
     }
 
     private static String base32Encode(String input) {
@@ -135,6 +137,37 @@ public class JansTOTPService extends TOTPService {
     }
 
     private static String externalIdOf(String id) {
-        return id;
+        return EXT_UID_PREFIX + id;
     }    
+
+    private static String findTOTPInExtAttrValue(JSONArray jansExtUidFieldValues) {
+        int totpIndex = findElement(jansExtUidFieldValues, "totp:");
+        if (totpIndex != -1) {
+            return jansExtUidFieldValues.getString(totpIndex);
+        }
+
+        return null;
+    }
+
+    private static String extractSecretKey(String externalId) {
+        if (externalId == null) {
+            return null;
+        }
+
+        int colonIndex = externalId.indexOf(':');
+        return externalId.substring(colonIndex + 1);
+    }
+
+    private static int findElement(JSONArray array, String target) {
+        if (array == null) {
+            return -1;
+        }
+
+        for (int i = 0; i < array.length(); i++) {
+            if (array.getString(i).indexOf(target) == 0) {
+                return i; // Return the index if the target string is found
+            }
+        }
+        return -1; // Return -1 if the target string is not found in the array
+    }
 }
