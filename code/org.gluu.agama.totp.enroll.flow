@@ -10,7 +10,7 @@ secretKey = Call OTPServiceObj generateSecretKey qrCodeKeyLength
 // Generate Secret code URI for QR Code
 secretKeyUri | E = Call OTPServiceObj generateTotpSecretKeyUri secretKey qrCodeIssuer userId
 // Debug log secret key URI
-Log "@debug secretKeyUri : " secretKeyUri  E
+Log "@debug secretKeyUri generation"  E
 // Map Obj(secretKeyUri, qrCodeLabel)  for enroll.ftlh RRF page
 obj = { secretKeyUri : secretKeyUri, qrCodeLabel: qrCodeLabel }
 // Load enroll.ftlh page and pass obj
