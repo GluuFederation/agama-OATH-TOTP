@@ -14,8 +14,8 @@ userId = user.data.userId
 OTPServiceObj | E = Call org.gluu.agama.totp.TOTPService#getInstance 
 // Get User's TOTP Secret key
 userTOTPSecretKey | E = Call OTPServiceObj getUserTOTPSecretKey userId
-// Debug Log User TOTP secret key 
-Log "@debug user TOTP secret key from flow " userTOTPSecretKey E
+// Debug Log got TOTP key
+Log "@debug Got secret TOTP key for" userId E
 // Declare and map enrollData to easy usage
 checkOTPValid = null
 qrCodeAlg = conf.qrCodeAlg
@@ -36,8 +36,8 @@ When userTOTPSecretKey is not null
      Log "@debug checkOTPValid check otp " checkOTPValid E
 When checkOTPValid.success is true
      // finish with success userId
-     it_gzskg = {success:true, data: { userId: userId }}
-     Finish it_gzskg
+     it_vqgza = {success:true, data: { userId: userId }}
+     Finish it_vqgza
 // Login Failed
-it_kqyjh = {success:false, error: "login failed"}
-Finish it_kqyjh
+it_uvtzs = {success:false, error: "login failed"}
+Finish it_uvtzs
