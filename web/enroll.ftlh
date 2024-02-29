@@ -30,6 +30,11 @@
 		  <div class="relative mb-2">
 			<input type="text" id="code" name="code" autofocus="" placeholder="******" class="w-full rounded px-3 border border-gray-300 pt-2 pb-2">
 		  </div>
+      <p class="leading-normal">3. Nickname (optional)
+		  </p>
+		  <div class="relative mb-2">
+			<input type="text" id="nickName" name="nickName" autofocus="" placeholder="" class="w-full rounded px-3 border border-gray-300 pt-2 pb-2">
+		  </div>
 		  <div class="space-y-9">
 			<div class="text-sm flex justify-between items-center">
 			  <button type="submit" class="py-2 px-6 rounded text-white btn bg-green-500 hover:bg-green-600">
