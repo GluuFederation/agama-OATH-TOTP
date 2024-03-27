@@ -12,6 +12,46 @@ Welcome to the [https://github.com/GluuFederation/agama-OATH-TOTP](https://githu
 
 Use this project to add user authentication with TOTP(Time-based One-time Passwords) 2-factor authentication.
 
+## Supported IDPs
+
+| IDP              | Description                                                                                  |
+| ---------------- | -------------------------------------------------------------------------------------------- |
+| Jans Auth Server | [Deployment instructions](https://gluu.org/agama/deploying-an-agama-project-to-jans-server/) |
+| Gluu Flex        | [Deployment instructions](https://gluu.org/agama/deploying-an-agama-project-to-jans-server/) |
+
+## Flows
+
+The project consists of four flows that provide incremental functionality:
+
+| Qualified Name             | Description                                                                                                                                                                                                                                                                                                                |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `org.gluu.agama.totp.main` | This is the main flow which you can directly launch from the browser. It first proceeds for user authn by triggering `org.gluu.agama.totp.pw` flow. Then helps to check user is already enrolled for TOTP 2FA or not. If a new user then trigger `org.gluu.agama.enroll` otherwise `org.gluu.agama.otp` and validate TOTP. |
+| `org.gluu.agama.totp.pw`   | This flow is used for user authn. It first asks the user to enter a username, and password, and validate the user.                                                                                                                                                                                                         |
+| `org.gluu.agama.enroll`    | This flow is used to enroll new users into TOTP 2FA. It provides an enrollment page with a QR-Code. Users need to scan the QR-Code in any Authenticator App and enter OTP. At the end, it returns a validation response.                                                                                                   |
+| `org.gluu.agama.otp`       | This flow is used to validate OTP. If the user is already enrolled in TOTP 2FA then it provides an OTP page and asks the user to enter an OTP and return a validation response.                                                                                                                                            |
+
+## Configuration
+
+Configuration parameters for `org.gluu.agama.totp.main` flow:
+
+| Name              | Description                                                           | Notes                                   |
+| ----------------- | --------------------------------------------------------------------- | --------------------------------------- |
+| `issuer`          | Issuer of the OTP service                                             | Keep it simple and little e.g. gluu.org |
+| `qrCodeLabel`     | This config is used to add your brand name into the center of QR Code | Keep it simple and little               |
+| `qrCodeKeyLength` | Key length to generate Secret Key                                     | Default is `20`                         |
+| `qrCodeAlg`       | Algorithm used to validate TOTP                                       | Default is `sha1`                       |
+
+```js
+{
+  "org.gluu.agama.totp.main": {
+      "issuer": "your-host-or-title",
+      "qrCodeLabel": "Gluu",
+      "qrCodeAlg": "sha1",
+      "qrCodeKeyLength": 20
+  }
+}
+```
+
 ## How it works at a glance
 
 When the main flow of this project is launched (namely, `org.gluu.agama.totp.main`) it shows the login page. The user enters a username and password. After the user authn, the OTP enrollmen page opens for new user and if a user is already enrolled then it will directly ask for OTP.
@@ -50,41 +90,11 @@ rp->>rp: Validate response
 rp->>browser: Page is accessed
 ```
 
-## Flows
+## Demo
 
-The project consists of four flows that provide incremental functionality:
+Check out this [video](https://www.loom.com/share/56cb3b2328dd48a9b8a8ffb0b69646d1) of the `org.gluu.agama.totp.main` flow.
 
-- **org.gluu.agama.totp.main**: This is the main flow which you can directly launch from the browser. It first proceeds for user authn by triggering `org.gluu.agama.totp.pw` flow. Then helps to check user is already enrolled for TOTP 2FA or not. If a new user then trigger `org.gluu.agama.enroll` otherwise `org.gluu.agama.otp` and validate TOTP.
-
-- **org.gluu.agama.totp.pw**: This flow is used for user authn. It first asks the user to enter a username, and password, and validate the user.
-
-- **org.gluu.agama.enroll**: This flow is used to enroll new users into TOTP 2FA. It provides an enrollment page with a QR-Code. Users need to scan the QR-Code in any Authenticator App and enter OTP. At the end, it returns a validation response.
-
-- **org.gluu.agama.otp**: This flow is used to validate OTP. If the user is already enrolled in TOTP 2FA then it provides an OTP page and asks the user to enter an OTP and return a validation response.
-
-## Config
-
-Config parameters for main flow:
-
-```js
-{
-  "org.gluu.agama.totp.main": {
-      "issuer": "your-host-or-title",
-      "qrCodeLabel": "Gluu",
-      "qrCodeAlg": "sha1",
-      "qrCodeKeyLength": 20
-  }
-}
-```
-
-| Name              | Description                                                           | Notes                                   |
-| ----------------- | --------------------------------------------------------------------- | --------------------------------------- |
-| `issuer`          | Issuer of the OTP service                                             | Keep it simple and little e.g. gluu.org |
-| `qrCodeLabel`     | This config is used to add your brand name into the center of QR Code | Keep it simple and little               |
-| `qrCodeKeyLength` | Key length to generate Secret Key                                     | Default is `20`                         |
-| `qrCodeAlg`       | Algorithm used to validate TOTP                                       | Default is `sha1`                       |
-
-# Core Developers
+# Contributors
 
 <table>
  <tr>

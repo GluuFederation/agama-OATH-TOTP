@@ -777,10 +777,10 @@
 					"type": "Agama-log-Node",
 					"displayName": "",
 					"hasComment": true,
-					"comment": "Debug Log User TOTP secret key ",
+					"comment": "Debug Log got TOTP key",
 					"whenCondition": "",
 					"inRepeatBlock": false,
-					"logMessage": "\"user TOTP secret key from flow \" userTOTPSecretKey E",
+					"logMessage": "\"Got secret TOTP key for\" userId E",
 					"logLevel": "debug",
 					"nodeIcon": "octicon:log-16",
 					"hasSuccess": "",
@@ -1391,8 +1391,8 @@
 		}
 	],
 	"viewport": {
-		"x": -514,
-		"y": 68,
+		"x": -826,
+		"y": 57,
 		"zoom": 1
 	}
 }

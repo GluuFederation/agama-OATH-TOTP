@@ -82,7 +82,7 @@ public class JansTOTPService extends TOTPService {
         }
     }
 
-    public String linkUser(String uid, String totpSecretKey)
+    public String linkUser(String uid, String totpSecretKey, String nickName)
         throws Exception {
         User user = getUser(UID, uid);
 
@@ -96,9 +96,14 @@ public class JansTOTPService extends TOTPService {
         UserService userService = CdiUtil.bean(UserService.class);
         userService.addUserAttribute(uid, EXT_ATTR, extUidPrefixTotpSecretKey, true);
         long now = System.currentTimeMillis();
-        String deviceJsonString = "{\"devices\":[{\"nickName\":\"OTP app\",\"addedOn\":"+ now +",\"id\":" + uid.hashCode() +",\"soft\":true}]}";
+        
+        if (nickName == null || nickName == "") {
+            nickName = "OTP APP"
+        }
+
+        String deviceJsonString = "{\"devices\":[{\"nickName\":\""+ nickName +"\",\"addedOn\":"+ now +",\"id\":" + totpSecretKey.hashCode() +",\"soft\":true}]}";
         userService.addUserAttribute(uid, "jansOTPDevices", deviceJsonString, false);
-        return extUidPrefixTotpSecretKey;
+        return nickName;
     }
 
     public String getUserTOTPSecretKey(String uid)

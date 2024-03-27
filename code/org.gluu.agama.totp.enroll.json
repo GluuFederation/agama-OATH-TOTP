@@ -324,7 +324,7 @@
 					"comment": "Debug log secret key URI",
 					"whenCondition": "",
 					"inRepeatBlock": false,
-					"logMessage": "\"secretKeyUri : \" secretKeyUri  E",
+					"logMessage": "\"secretKeyUri generation\"  E",
 					"logLevel": "debug",
 					"nodeIcon": "octicon:log-16"
 				},
@@ -571,7 +571,7 @@
 				},
 				"skake": false
 			},
-			"selected": true,
+			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 920,
@@ -1095,8 +1095,8 @@
 		}
 	],
 	"viewport": {
-		"x": -230,
-		"y": 86,
+		"x": -204,
+		"y": 111,
 		"zoom": 1
 	}
 }
