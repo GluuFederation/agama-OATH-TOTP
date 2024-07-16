@@ -421,7 +421,7 @@
 					"javaClassName": "org.gluu.agama.totp.TOTPUtil",
 					"javaMethodName": "validateTOTP",
 					"javaVariableName": "OTPServiceObj",
-					"exceptionVariableField": "E",
+					"exceptionVariableField": "",
 					"callType": "Call method on instance",
 					"whenCondition": "",
 					"inRepeatBlock": "",
@@ -436,7 +436,7 @@
 				},
 				"skake": false
 			},
-			"selected": false,
+			"selected": true,
 			"positionAbsolute": {
 				"x": 1248.510367063211,
 				"y": 64.8621868626461
