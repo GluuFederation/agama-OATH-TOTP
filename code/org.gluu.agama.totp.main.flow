@@ -36,8 +36,8 @@ When userTOTPSecretKey is not null
      Log "@debug checkOTPValid check otp " checkOTPValid E
 When checkOTPValid.success is true
      // finish with success userId
-     it_gatbe = {success:true, data: { userId: userId }}
-     Finish it_gatbe
+     it_gvqly = {success:true, data: { userId: userId }}
+     Finish it_gvqly
 // Login Failed
-it_eodba = {success:false, error: "login failed"}
-Finish it_eodba
+it_imyht = {success:false, error: "login failed"}
+Finish it_imyht
