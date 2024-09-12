@@ -88,18 +88,22 @@ To invoke the `org.gluu.agama.totp.main` flow contained in the  Agama-TOTP proje
 specify the ACR value as `agama_<qualified-name-of-the-top-level-flow>`, 
 i.e  `agama_org.gluu.agama.totp.main`.
 
-![gif]()
+
 
 ## Customize and Make It Your Own
 
+Fork this repo to start customizing the Agama-TOTP project. It is possible to 
+customize the user interface provided by the flow to suit your organization's 
+branding 
+guidelines. Or customize the overall flow behavior. Follow the best 
+practices and steps listed 
+[here](https://docs.jans.io/head/admin/developer/agama/agama-best-practices/#project-reuse-and-customizations) 
+to achieve these customizations in the best possible way.
+This  project can be re-used in other Agama projects to create more complex
+ authentication journeys. To re-use, trigger the 
+ [org.gluu.agama.totp.main](#flows-in-the-project) flow from other Agama projects.
 
-Fork this repo to start customizing the Agama-TOTP project. Add custom web assets 
-to change the styling of the web pages to suit your organization's branding 
-guidelines. Or customize the flow code to change the most basic behavior. 
-Agama flow can also be used in conjunction with other Agama projects to create 
-complex authentication journeys. 
-
-To make it easier to visualize and customize the Agama Project, use the 
+To make it easier to visualize and customize the Agama Project, use 
 [Agama Lab](https://cloud.gluu.org/agama-lab/login).
 
 ## Flows In The Project
@@ -115,7 +119,7 @@ The project consists of four flows that provide incremental functionality:
 | `org.gluu.agama.otp`       | This flow is used to validate OTP. If the user is already enrolled in TOTP 2FA then it provides an OTP page and asks the user to enter an OTP and return a validation response.                                                                                                                                            |
 
 
-## How it works at a glance
+## org.gluu.agama.totp.main
 
 When the main flow of this project is launched 
 (namely, `org.gluu.agama.totp.main`) it shows the login page. The user enters a 
