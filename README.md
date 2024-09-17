@@ -78,8 +78,6 @@ configuration parameters for the [flows contained in it](#flows-in-the-project):
 Check the flow detail section for details about configuration parameters.
 
 
-
-
 ### Test The Flow
 
 Use any relying party implementation (like [jans-tarp](https://github.com/JanssenProject/jans/tree/main/demos/jans-tarp)) 
@@ -106,7 +104,7 @@ This project can be reused in other Agama projects to create more complex
 authentication journeys. To reuse, trigger the 
 [org.gluu.agama.totp.main](#flows-in-the-project) flow from other Agama projects.
 
-To make it easier to visualise and customize the Agama Project, use 
+To make it easier to visualize and customize the Agama Project, use 
 [Agama Lab](https://cloud.gluu.org/agama-lab/login).
 
 ## Flows In The Project
@@ -122,7 +120,7 @@ The project consists of four flows that provide incremental functionality:
 | `org.gluu.agama.otp` | This flow is used to validate OTP. If the user is already enrolled in TOTP 2FA, then it provides an OTP page and asks the user to enter an OTP and return a validation response. |
 
 
-## org.gluu.agama.totp.main
+### org.gluu.agama.totp.main
 
 When the main flow of this project is launched 
 (namely, `org.gluu.agama.totp.main`) it shows the login page. The user enters a 
@@ -174,10 +172,18 @@ rp->>browser: Page is accessed
 | `qrCodeAlg` | Algorithm used to validate TOTP | Default is `sha1` |
 
 
-## Demo
 
-Check out this [video](https://www.loom.com/share/56cb3b2328dd48a9b8a8ffb0b69646d1) 
-of the `org.gluu.agama.totp.main` flow.
+# Demo
+
+Check out this video to see the **agama-TOTP** authentication flow in action.
+Also check the 
+[Agama Project Of The Week](https://gluu.org/agama-project-of-the-week/) video
+series for a quick demo on this flow.
+
+*Note:*
+While video shows how the flow works overall, it may be dated. Do check the 
+[Test The Flow](#test-the-flow) section to understand the current
+method of passing the ACR parameter when invoking the flow.
 
 <!-- This is the stats url reference for this repository -->
 
