@@ -11,7 +11,7 @@
 # About  Agama TOTP Project
 
 This repo is home to the Gluu Agama-TOTP project. This Agama project provides 
-authentication with TOTP(Time-based One-time Passwords) 2-factor authentication.
+authentication with TOTP(Time-based one-time passwords) 2-factor authentication.
 
 ## Where To Deploy
 
@@ -29,9 +29,15 @@ The steps below show how the Agama-TOTP project can be deployed on the
 
 Deployment of an Agama project involves three steps.
 
-- [Downloading the `.gama` package from project repository](#download-the-project)
+- [Downloading the `.gama` package from the project repository](#download-the-project)
 - [Adding the `.gama` package to the IAM server](#add-the-project-to-the-server)
 - [Configure the project](#configure-the-project)
+
+
+#### Pre-Requisites
+
+You should have access to an authenticator app, such as Google Authenticator, 
+Microsoft Authenticator, etc., to retrieve the one-time password (OTP).
 
 
 ### Download the Project
@@ -45,7 +51,7 @@ Deployment of an Agama project involves three steps.
 The project is bundled as 
 [.gama package](https://docs.jans.io/head/agama/gama-format/). 
 Visit the `Assets` section of the 
-[Releases](https://github.com/GluuFederation/agama-OATH-TOTP/releases) to download 
+[Releases](https://github.com/GluuFederation/agama-OATH-TOTP/releases) to download
 the `.gama` package.
 
 
@@ -53,7 +59,8 @@ the `.gama` package.
 
 The Janssen Server provides multiple ways an Agama project can be 
 deployed and configured. Either use the command-line tool, REST API, or a 
-TUI (text-based UI). Refer to 
+TUI (text-based UI). Refer to You Should access an authentication app, such as Google Authenticator or
+Microsoft Authenticator, etc., to retrieve the one-time password (OTP).
 [Agama project configuration page](https://docs.jans.io/head/admin/config-guide/auth-server-config/agama-project-configuration/) 
 in the Janssen Server documentation for more details.
 
@@ -83,25 +90,25 @@ Check the flow detail section for details about configuration parameters.
 Use any relying party implementation (like [jans-tarp](https://github.com/JanssenProject/jans/tree/main/demos/jans-tarp)) 
 to send an authentication request that triggers the flow.
 
-From the incoming authentication request, the Janssen Server reads the `ACR` 
-parameter value to identify which authentication method should be used. 
-To invoke the `org.gluu.agama.totp.main` flow contained in the  Agama-TOTP project, 
+From the incoming authentication request, the Janssen Server reads the `ACR`
+parameter value to identify which authentication method should be used.
+To invoke the `org.gluu.agama.totp.main` flow contained in the Agama-TOTP project, 
 specify the ACR value as `agama_<qualified-name-of-the-top-level-flow>`, 
-i.e  `agama_org.gluu.agama.totp.main`.
+i.e `agama_org.gluu.agama.totp.main`.
 
 
 
 ## Customize and Make It Your Own
 
 Fork this repo to start customizing the Agama-TOTP project. It is possible to 
-customize the user interface provided by the flow to suit your organisation's 
+customize the user interface provided by the flow to suit your organization's 
 branding 
 guidelines. Or customize the overall flow behavior. Follow the best
 practices and steps listed 
 [here](https://docs.jans.io/head/admin/developer/agama/agama-best-practices/#project-reuse-and-customizations) 
 to achieve these customizations in the best possible way.
 This project can be reused in other Agama projects to create more complex
-authentication journeys. To reuse, trigger the 
+authentication journeys. To reuse trigger the 
 [org.gluu.agama.totp.main](#flows-in-the-project) flow from other Agama projects.
 
 To make it easier to visualize and customize the Agama Project, use 
@@ -114,18 +121,11 @@ The project consists of four flows that provide incremental functionality:
 
 | Qualified Name | Description |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `org.gluu.agama.totp.main` | This is the main flow, which you can directly launch from the browser. It first proceeds for user authentication by triggering `org.gluu.agama.totp.pw` flow. Then it helps to check user is already enrolled for TOTP 2FA or not. If a new user, then trigger `org.gluu.agama.enroll` otherwise `org.gluu.agama.otp` and validate TOTP. |
-| `org.gluu.agama.totp.pw` | This flow is used for user authn. It first asks the user to enter a username and password and validate the user. |
-| `org.gluu.agama.enroll` | This flow is used to enroll new users into TOTP 2FA. It provides an enrollment page with a QR- code. Users need to scan the QR- code in any authenticator app and enter OTP. At the end, it returns a validation response. |
+| `org.gluu.agama.totp.main` | This is the main flow, which you can directly launch from the browser. It first proceeds for user authentication by triggering `org.gluu.agama.totp.pw` flow. Then it helps to check if the user is already enrolled for TOTP 2FA or not. If a new user, then trigger `org.gluu.agama.enroll` otherwise `org.gluu.agama.otp` and validate TOTP. |
+| `org.gluu.agama.totp.pw` | This flow is used for user authentication. It first asks the user to enter a username and password and validate the user. |
+| `org.gluu.agama.enroll` | This flow is used to enroll new users into TOTP 2FA. It provides an enrollment page with a QR code. Users need to scan the QR code in any authenticator app and enter OTP. At the end, it returns a validation response. |
 | `org.gluu.agama.otp` | This flow is used to validate OTP. If the user is already enrolled in TOTP 2FA, then it provides an OTP page and asks the user to enter an OTP and return a validation response. |
 
-
-### org.gluu.agama.totp.main
-
-When the main flow of this project is launched 
-(namely, `org.gluu.agama.totp.main`) it shows the login page. The user enters a 
-username and password. After the user authn, the OTP enrollmen page opens for 
-new user, and if a user is already enrolled then it will directly ask for OTP.
 
 ```mermaid
 sequenceDiagram
@@ -166,10 +166,10 @@ rp->>browser: Page is accessed
 
 | Name | Description | Notes |
 | ----------------- | --------------------------------------------------------------------- | --------------------------------------- |
-| `issuer` | Issuer of the OTP service | Keep it simple and little, e.g. gluu.org |
+| `issuer` | Issuer of the OTP service | Keep it simple and little, e.g., gluu.org |
 | `qrCodeLabel` | This config is used to add your brand name into the center of the QR Code | Keep it simple and little | 
 | `qrCodeKeyLength` | Key length to generate secret key | Default is `20` |
-| `qrCodeAlg` | Algorithm used to validate TOTP | Default is `sha1` |
+| `qrCodeAlg` | Algorithm used to validate TOTP | Default is 'sha1` |
 
 
 
@@ -181,7 +181,7 @@ Also check the
 series for a quick demo on this flow.
 
 *Note:*
-While video shows how the flow works overall, it may be dated. Do check the 
+While the video shows how the flow works overall, it may be dated. Do check the 
 [Test The Flow](#test-the-flow) section to understand the current
 method of passing the ACR parameter when invoking the flow.
 
