@@ -17,7 +17,7 @@ Repeat 3 times max
      authResult.uid = creds.username
      // authResult.success is true
      When authResult.success is true
-          it_rhuqf = {success:true, data: {userId: authResult.uid}}
-          Finish it_rhuqf
-it_arjlf = {success:false, error: "false"}
-Finish it_arjlf
+          it_xkleh = {success:true, data: {userId: authResult.uid}}
+          Finish it_xkleh
+it_znbcl = {success:false, error: "false"}
+Finish it_znbcl
