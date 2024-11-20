@@ -24,7 +24,7 @@ Log "@debug otp check result " otpCheck E
 // check otp is valid? then save secretKey to user
 When otpCheck is true
      // Save secret key to user
-     userSavedData | E = Call OTPServiceObj linkUser userId secretKey scanCode.nickName
+     userSavedData | E = Call OTPServiceObj linkUser userId secretKey
      // Debug log user save data result
      Log "@debug user saved data " userSavedData E
 // Finish with OTP Check Result true or false
