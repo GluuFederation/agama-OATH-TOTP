@@ -67,22 +67,32 @@ in the Janssen Server documentation for more details.
 
 ### Configure The Project
 
-The Agama project accepts configuration parameters in the JSON format. Every Agama 
-project comes with a basic sample configuration file for reference.
+The Agama project accepts configuration parameters in JSON format. Every Agama project comes with a sample configuration file for reference.
 
-Below is a typical configuration of the Agama-TOTP project. As shown, it contains
-configuration parameters for the [flows contained in it](#flows-in-the-project):
-```
+Below is a typical configuration for the Agama-TOTP project:
+
+```json
 {
   "org.gluu.agama.totp.main": {
-      "issuer": "your-host-or-title",
-      "qrCodeLabel": "Gluu",
-      "qrCodeAlg": "sha1",
-      "qrCodeKeyLength": 20
+    "issuer": "your-host-or-title",
+    "qrCodeLabel": "Gluu",
+    "qrCodeAlg": "sha1",
+    "qrCodeKeyLength": 20
   }
 }
 ```
-Check the flow detail section for details about configuration parameters.
+
+| Parameter         | Required | Description                                                                                                                                                                         | Example                             |
+| ----------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| `issuer`          | Yes      | The issuer name displayed in authenticator applications (such as Google Authenticator or Authy). This value identifies the organization or service that issued the TOTP credential. | `idp.example.com` or `Example Corp` |
+| `qrCodeLabel`     | Yes      | The label displayed alongside the account in the authenticator application when the QR code is scanned.                                                                             | `Gluu`                              |
+| `qrCodeAlg`       | Yes      | The hashing algorithm used to generate TOTP codes. Supported values depend on the implementation, with `sha1` being the most commonly used and widely supported.                    | `sha1`                              |
+| `qrCodeKeyLength` | Yes      | The length, in bytes, of the secret key generated for TOTP enrollment.                                                                                                              | `20`                                |
+
+> **Note**
+>
+> Most authenticator applications support the default configuration (`sha1` with a key length of `20`). Unless you have a specific interoperability or security requirement, it is recommended to keep these default values.
+
 
 
 ### Test The Flow
